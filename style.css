@@ -1,0 +1,37 @@
+@import url('https://v1.fontapi.ir/css/Mikhak');
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Mikhak', sans-serif;
+}
+
+.navbar {
+	background: url(./images/nav.jpg) no-repeat fixed ;
+	background-size: cover;
+	height: 300px;
+}
+
+.links ul {
+	direction: rtl;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	padding: 8px;
+	border-radius: 25px;
+	display: flex;
+	background-color: #fff;
+}
+
+.links ul a ,
+.links ul li {
+	text-decoration: none;
+	list-style: none;
+	margin-right: 10px;
+}
+.logo img {
+	width: 100px;
+
+}

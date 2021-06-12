@@ -14,6 +14,11 @@
 	height: 300px;
 }
 
+.logo img {
+	width: 100px;
+
+}
+
 .links ul {
 	direction: rtl;
 	position: absolute;
@@ -22,7 +27,10 @@
 	padding: 8px;
 	border-radius: 25px;
 	display: flex;
+	justify-content: center;
+	align-items: center;
 	background-color: #fff;
+	transition: all 1s;
 }
 
 .links ul a ,
@@ -36,7 +44,30 @@
 	margin-left: 10px;
 }
 
-.logo img {
-	width: 100px;
+.links ul .icon {
+	display: none;
+}
 
+@media screen and (max-width: 600px) {
+	.links ul {
+		display: block;
+	}
+
+	.links ul li{
+		display: none;
+	}
+	.links ul .icon {
+		display: block;
+	}
+	.links.responsive ul li {
+		display: flex;
+		margin: .5em 0 0 3em;
+	}
+	.links ul {
+		border-radius: 10px;
+	}
+	.icon {
+		padding-left: 10px;
+	}
+	
 }

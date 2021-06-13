@@ -32,3 +32,20 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
 }
+
+/* sticky navbar */
+window.onscroll = function() {stickyNav()};
+
+const navbar = document.querySelector(".navbar");
+const navTop = navbar.offsetTop;
+const layer = document.querySelector(".layer");
+
+function stickyNav() {
+  if (window.pageYOffset > navTop) {
+    navbar.classList.add("sticky");
+    layer.style.position = 'relative';
+  } else {
+    navbar.classList.remove("sticky");
+    layer.style.position = 'absolute';
+  }
+}

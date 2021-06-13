@@ -40,14 +40,13 @@
 	margin-right: 10px;
 }
 
-.links ul li:nth-child(5) {
-	margin-left: 10px;
+.links ul li:nth-child(6) {
+	margin-left: 20px;
 }
 
 .links ul .icon {
 	display: none;
 }
-
 @media screen and (max-width: 600px) {
 	.links ul {
 		display: block;
@@ -63,11 +62,240 @@
 		display: flex;
 		margin: .5em 0 0 3em;
 	}
-	.links ul {
-		border-radius: 10px;
-	}
 	.icon {
 		padding-left: 10px;
 	}
 	
+}
+
+
+/* Slideshow container */
+
+.mySlides {display: none}
+.slideshow-container img {
+	vertical-align: middle;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+
+.slideshow-container {
+  display: inline-flex;
+  top: 1em;
+  left: 32%;
+  transform: translateX(-50%);
+  max-width: 22em;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -1.5em;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 1em;
+  width: 100%;
+  text-align: center;
+}
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.dotContainer {
+	position: absolute;
+	/*top: 11em;
+	left: 9.8em;*/
+	width: 100%;
+	text-align: center;
+	bottom: -6px;
+}
+
+.dot {
+  cursor: pointer;
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+
+
+.active, .dot:hover {
+  background-color: #9727c5;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@media only screen and (max-width: 310px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+
+/* mix */
+.mix {
+	max-width: 15em;
+	display: inline-flex;
+	flex-direction: column;
+	position: relative;
+	top: .3em;
+	right:0;
+	transform: translateX(110%);
+}
+
+.mix img {
+	width: 12em;
+	height: 5.8em;
+	border-radius: 15px;
+	margin-top: 2px;
+}
+
+@media only screen and (max-width: 1143px) {
+	 .slideshow-container  {
+	 	  display: inline-flex;
+		  top: 1em;
+		  left: 50%;
+		  transform: translateX(-50%);
+		  /*max-width: 14em;*/
+		  width: auto;
+		  right: 5px;
+		  position: relative;
+		  border-radius: 15px;
+		  overflow: hidden;
+	}
+	.mix {
+		max-width: 15em;
+		display: inline-flex;
+		flex-direction: column;
+		position: relative;
+		top: 14em;
+		left:0%;
+		right: 0;
+		transform: translateX(-50%);
+	}
+	
+	.mix img {
+	width: auto;
+	height: 5.8em;
+	border-radius: 15px;
+	margin-top: 2px;
+	}
+}
+
+
+
+
+@media only screen and (max-width: 785px) {
+	 .slideshow-container  {
+	 	  display: inline-flex;
+		  top: 1em;
+		  left: 50%;
+		  transform: translateX(-50%);
+		  /*max-width: 14em;*/
+		  width: auto;
+		  right: 5px;
+		  position: relative;
+		  border-radius: 15px;
+		  overflow: hidden;
+	}
+	.mix {
+		max-width: auto;
+		display: inline-flex;
+		flex-direction: column;
+		position: relative;
+		top:3em;
+		left:50%;
+		right: 0;
+		transform: translateX(-50%);
+	}
+	
+	.mix img {
+	width: auto;
+	height: 9em;
+	border-radius: 15px;
+	margin-top: 2px;
+	}
+}
+
+
+
+
+
+@media only screen and (max-width: 500px) {
+	.slideshow-container  {
+	 	  display: inline-flex;
+		  top: 1em;
+		  left: 50%;
+		  transform: translateX(-50%);
+		  /*max-width: 14em;*/
+		  width: auto;
+		  right: 5px;
+		  position: relative;
+		  border-radius: 15px;
+		  overflow: hidden;
+	}
+	.mix {
+		max-width: 15em;
+		display: inline-flex;
+		flex-direction: column;
+		position: relative;
+		top: 2em;
+		left:50%;
+		right: 0;
+		transform: translateX(-50%);
+	}
+	.mix img {
+	width: auto;
+	height: 5.8em;
+	border-radius: 15px;
+	margin-top: 2px;
+	}
 }

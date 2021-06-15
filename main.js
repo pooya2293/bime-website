@@ -1,8 +1,10 @@
 
 function openLinks(){
-	const links = document.querySelector('.links');
+	var links = document.querySelector('.links');
 	links.classList.toggle('responsive');
 }
+const content = document.querySelector('.content');
+content.addEventListener('click',()=>document.querySelector('.links').classList.remove('responsive'));
 
 /* slider */
 

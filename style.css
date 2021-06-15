@@ -63,6 +63,12 @@ a,
 	.links ul {
 		display: block;
 		/*border-radius: 15px;*/
+		width: 40px;
+		height: 40px;
+	}
+	.links.responsive ul {
+		width: auto;
+		height: auto;
 	}
 
 	.links ul li{
@@ -78,8 +84,13 @@ a,
 
 	}
 	.icon {
-		padding-left: 10px;
+		position: relative;
+		left: 15%;
 		font-size: 17px;
+	}
+
+	.responsive .icon {
+		left: 0;
 	}
 	
 }
@@ -372,8 +383,12 @@ a,
   position: fixed;
   top: 0;
   width: 100%;
-  height: 46px;
+  height: 48.5px;
   z-index: 2;
+}
+
+.sticky .links ul {
+	margin-top: 2px;
 }
 
 .layer {

@@ -20,7 +20,7 @@
 	position: relative;
 	width: 100px;
 	z-index: 2;
-
+	transition: width 1s;
 }
 
 .links ul {
@@ -33,8 +33,14 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	font-size: 19px;
 	background-color: #fff;
-	transition: all 1s;
+	transition: font-size,top 1.2s;
+
+}
+
+.linksUl-scroll {
+	font-size: 16px !important;
 }
 
 a,
@@ -53,11 +59,14 @@ a,
 	display: none;
 }
 @media screen and (max-width: 600px) {
+
 	.links ul {
 		display: block;
+		/*border-radius: 15px;*/
 	}
 
 	.links ul li{
+		font-size: 19px;
 		display: none;
 	}
 	.links ul .icon {
@@ -66,9 +75,11 @@ a,
 	.links.responsive ul li {
 		display: flex;
 		margin: .5em 0 0 3em;
+
 	}
 	.icon {
 		padding-left: 10px;
+		font-size: 17px;
 	}
 	
 }
@@ -361,7 +372,7 @@ a,
   position: fixed;
   top: 0;
   width: 100%;
-  height: 3em;
+  height: 2em;
   z-index: 2;
 }
 

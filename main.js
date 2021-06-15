@@ -39,13 +39,21 @@ window.onscroll = function() {stickyNav()};
 const navbar = document.querySelector(".navbar");
 const navTop = navbar.offsetTop;
 const layer = document.querySelector(".layer");
+const ulLinks = document.querySelector('.links').querySelector('ul');
+const logo = document.querySelector('.logo').querySelector('img');
 
 function stickyNav() {
-  if (window.pageYOffset > navTop) {
+  if (window.pageYOffset > 0) {
     navbar.classList.add("sticky");
     layer.style.position = 'relative';
-  } else {
+    ulLinks.classList.add('linksUl-scroll');
+    ulLinks.style.top = '2.2px';
+    logo.style.width = '70px';
+  } else  {
     navbar.classList.remove("sticky");
     layer.style.position = 'absolute';
+    ulLinks.classList.remove('linksUl-scroll');
+    ulLinks.style.top = '10px';
+    logo.style.width = '100px';
   }
 }

@@ -1,5 +1,5 @@
 
-function openLinks(){
+const openLinks= ()=>{
 	var links = document.querySelector('.links');
 	links.classList.toggle('responsive');
 }

@@ -338,6 +338,7 @@ a,
 }
 .weblog img {
 	width: 90%;
+	height:300px ;
 	position: relative;
 	left: 50%;
 	transform: translateX(-50%);
@@ -358,26 +359,30 @@ a,
 	}
 }
 
-@media only screen and (max-width: 890px) {
-	.weblog {
-		width:95%;
-		grid-template-columns:  2fr 2fr ;
-	}
-	.weblog img {
-		width: 90%;
-	}
-	.weblog .text{
-		font-size: .6em ;
-	}
-}
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 870px) {
 	.weblog {
 		width:95%;
 		grid-template-columns:  2fr ;
 	}
 	.weblog img {
 		width: 90%;
+		height: 90%;
+	}
+	.weblog .text{
+		font-size: .6em ;
+	}
+
+}
+
+@media only screen and (max-width: 460px) {
+	.weblog {
+		width:95%;
+		grid-template-columns:  2fr ;
+	}
+	.weblog img {
+		width: 90%;
+		height: 90%;
 	}
 	.weblog .text{
 		font-size: .6em ;

@@ -1,4 +1,4 @@
-
+/* toggle navbar colapsable */
 const openLinks= ()=>{
 	var links = document.querySelector('.links');
 	links.classList.toggle('responsive');
@@ -7,33 +7,46 @@ const content = document.querySelector('.content');
 content.addEventListener('click',()=>document.querySelector('.links').classList.remove('responsive'));
 
 /* slider */
-
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
+// get slides item from DOM after 2.5s
+let getSlidesItem = () => {
+    return new Promise(function(resolve, reject) {
+        setTimeout(function() {
+            var slides = document.getElementsByClassName("mySlides");
+            resolve(slides);
+        }, 2500);
+    });
 }
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
+async function render(){
+   const innerLoad = await getSlidesItem();
+   showSlides(slideIndex);//show slider
 }
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
+render();
+// SETUP slider
+  var slideIndex = 1;
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
   }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
   }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-}
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}    
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+  }
+
+
 
 /* sticky navbar */
 window.onscroll = function() {stickyNav()};

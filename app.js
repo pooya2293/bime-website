@@ -1,11 +1,18 @@
-import { PostsData }  from '/hello.js'
+import { PostsData,SliderData }  from '/hello.js'
 
 const postsDOM = document.querySelector('.weblog');
+const sliderDOM = document.querySelector('.sliderDATA');
 
 /* get weblogs item */
 class Posts {
 	getPosts() {
 		return PostsData ;
+	}
+}
+/* get slider items */
+class Sliders {
+	getSliders() {
+		return SliderData ;
 	}
 }
 
@@ -22,6 +29,18 @@ class UI {
 		});
 		postsDOM.innerHTML = result;
 	}
+	displaySliders(sliders) {
+		let result = '';
+		sliders.forEach((slide)=>{
+			result +=`<div class="mySlides fade">
+				  <div class="numbertext">${slide.id} / ${sliders.length}</div>
+				  <img src=${slide.img} style="width:100%">
+				  <div class="text">${slide.title}</div>
+				</div>`
+		});
+		sliderDOM.innerHTML = result;
+	}
+
 }
 
 document.addEventListener('DOMContentLoaded',()=>{
@@ -29,6 +48,11 @@ document.addEventListener('DOMContentLoaded',()=>{
 	// get all posts
 	const posts = new Posts();
 	const postsData = posts.getPosts();
-	window.console.log(postsData);
 	ui.displayPosts(postsData);
+	// get all sliders
+	const sliders = new Sliders();
+	const sliderData = sliders.getSliders();
+	ui.displaySliders(sliderData);
+
 });
+

@@ -23,3 +23,24 @@
  }
 
 ];
+
+export const SliderData = [
+    
+    {
+        id:1,
+        title:'سلام',
+        img:'https://image.freepik.com/free-vector/breaking-news-live-world-map-connection_41981-1139.jpg'
+    },
+    {
+        id:2,
+        title:'چطوری',
+        img:'https://media4.s-nbcnews.com/j/newscms/2019_01/2705191/nbc-social-default_b6fa4fef0d31ca7e8bc7ff6d117ca9f4.nbcnews-fp-1200-630.png',
+    }
+    ,
+    {
+        id:3,
+        title:'خوبی؟',
+        img:'https://pressgazette.co.uk/gb-news-brazier/'
+    }
+
+] 

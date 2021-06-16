@@ -39,9 +39,6 @@
 
 }
 
-.linksUl-scroll {
-	font-size: 16px !important;
-}
 
 a,
 .links ul a ,
@@ -58,6 +55,10 @@ a,
 .links ul .icon {
 	display: none;
 }
+
+.linksUl-scroll {
+	font-size: 16px !important;
+}
 @media screen and (max-width: 600px) {
 
 	.links ul {
@@ -65,10 +66,18 @@ a,
 		/*border-radius: 15px;*/
 		width: 40px;
 		height: 40px;
+		overflow: hidden;
+		transition: background-color 1s,width 1s ,height 1s;
 	}
 	.links.responsive ul {
-		width: auto;
-		height: auto;
+		transition: background-color 1s,width 1s ,height 1s;
+		width: 95%;
+		height: 300px;
+		background-color: #3c3434;
+	}
+
+	.links.responsive a {
+		color: #fff;
 	}
 
 	.links ul li{

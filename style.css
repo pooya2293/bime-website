@@ -142,7 +142,7 @@ a,
 }
 
 .next {
-  right: 0;
+  right: -10px;
   border-radius: 3px 0 0 3px;
 }
 
@@ -151,6 +151,7 @@ a,
 }
 
 .text {
+	direction: rtl;
   color: #f2f2f2;
   font-size: 15px;
   padding: 8px 12px;
@@ -211,8 +212,11 @@ a,
   to {opacity: 1}
 }
 
-@media only screen and (max-width: 310px) {
-  .prev, .next,.text {font-size: 11px}
+@media only screen and (max-width: 320px) {
+  .text {font-size: 14px}
+  .prev, .next {
+  	font-size: 9px;
+  }
 }
 
 

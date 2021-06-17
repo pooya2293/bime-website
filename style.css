@@ -38,7 +38,10 @@
 	transition: font-size,top 1.2s;
 
 }
-
+.navLinks li {
+	position: relative;
+	display: inline-flex;
+}
 
 a,
 .links ul a ,

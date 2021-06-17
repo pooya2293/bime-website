@@ -1,24 +1,31 @@
-import { PostsData,SliderData,MixInfo }  from './hello.js'
+import { PostsData,SliderData,MixInfo,NavLinks }  from './hello.js'
 
 const postsDOM = document.querySelector('.weblog');
 const sliderDOM = document.querySelector('.sliderDATA');
 const mixDOM = document.querySelector('.mix');
-/* get weblogs item */
+const navLinksDOM = document.querySelector('.navLinks');
+/* get weblogs Data */
 class Posts {
 	getPosts() {
 		return PostsData ;
 	}
 }
-/* get slider items */
+/* get slider Data */
 class Sliders {
 	getSliders() {
 		return SliderData ;
 	}
 }
-
+/* get MixInfos Data */
 class Mixs {
 	getMixInfos(){
 		return MixInfo;
+	}
+}
+/* get slider Data */
+class Nav_Links {
+	getNavLinks(){
+		return NavLinks;
 	}
 }
 
@@ -63,6 +70,16 @@ class UI {
 		});
 		mixDOM.innerHTML = result;
 	}
+	displayNavLinks(navLinks){
+		let result = '';
+		navLinks.forEach((link)=>{
+			result += `<li>
+						<a href=${link.url}>
+						${link.text}</a>
+					</li>`
+		});
+		navLinksDOM.innerHTML = result;
+	}
 
 }
 
@@ -80,5 +97,9 @@ document.addEventListener('DOMContentLoaded',()=>{
 	const mixs = new Mixs();
 	const mixInfoData = mixs.getMixInfos();
 	ui.displayMixInfo(mixInfoData);
+	// get all navLinks
+	const nav = new Nav_Links();
+	const navLinks = nav.getNavLinks();
+	ui.displayNavLinks(navLinks);
 
 });

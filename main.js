@@ -7,13 +7,13 @@ const content = document.querySelector('.content');
 content.addEventListener('click',()=>document.querySelector('.links').classList.remove('responsive'));
 
 /* slider */
-// get slides item from DOM after 1s
+// get slides item from DOM after 2s
 let getSlidesItem = () => {
     return new Promise(function(resolve, reject) {
         setTimeout(function() {
             var slides = document.getElementsByClassName("mySlides");
             resolve(slides);
-        }, 1000);
+        }, 2000);
     });
 }
 async function render(){

@@ -7,13 +7,13 @@ const content = document.querySelector('.content');
 content.addEventListener('click',()=>document.querySelector('.links').classList.remove('responsive'));
 
 /* slider */
-// get slides item from DOM after 2.5s
+// get slides item from DOM after 1s
 let getSlidesItem = () => {
     return new Promise(function(resolve, reject) {
         setTimeout(function() {
             var slides = document.getElementsByClassName("mySlides");
             resolve(slides);
-        }, 2500);
+        }, 1000);
     });
 }
 async function render(){
@@ -72,3 +72,4 @@ function stickyNav() {
     logo.style.width = '100px';
   }
 }
+

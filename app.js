@@ -16,12 +16,20 @@ class Sliders {
 	}
 }
 
+/* get Title and join together with underscore( _ ) */
+function  getTitle(item){
+var key='';
+    key= item.split(' ').join('_');
+    return key;
+}
+
+
 class UI {
 	displayPosts(posts) {
 		let result = '';
 		posts.forEach((post)=> {
 			result += `<a href="#">
-						<img src=${post.img} alt="">
+						<img src=${post.img} alt=${post.title} title=${getTitle(post.title)} >
 					<div class="text">
 						<h2>${post.title}</h2>
 						<p>${post.text}</p>
@@ -34,7 +42,7 @@ class UI {
 		sliders.forEach((slide)=>{
 			result +=`<div class="mySlides fade">
 				  <div class="numbertext">${slide.id} / ${sliders.length}</div>
-				  <img src=${slide.img} style="width:100%">
+				  <img src=${slide.img} style="width:100%" alt=${slide.title} title=${getTitle(slide.title)}>
 				  <div class="text">${slide.title}</div>
 				</div>`
 		});
@@ -55,4 +63,3 @@ document.addEventListener('DOMContentLoaded',()=>{
 	ui.displaySliders(sliderData);
 
 });
-

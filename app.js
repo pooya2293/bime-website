@@ -1,4 +1,4 @@
-import { PostsData,SliderData,MixInfo,NavLinks }  from './hello.js'
+import { PostsData,SliderData,MixInfo,NavLinks }  from './datas/hello.js'
 
 const postsDOM = document.querySelector('.weblog');
 const sliderDOM = document.querySelector('.sliderDATA');

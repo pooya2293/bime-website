@@ -222,18 +222,22 @@ a,
 
 /* mix */
 .mix {
-	max-width: 15em;
+	width: 44%;
 	display: inline-flex;
-	flex-direction: column;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: space-around;
 	position: relative;
 	top: 2.5em;
-	right:0;
-	transform: translateX(110%);
+	left: 20%;
+	/*transform: translateX(110%);*/
 }
 
 .mix img {
-	width: 12em;
-	height: 5.8em;
+	width: 20vw;
+	height: 10vw;
 	border-radius: 15px;
 	margin-top: 2px;
 }
@@ -242,7 +246,7 @@ a,
 
 
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1108px) {
 	 .slideshow-container  {
 	 	  display: inline-flex;
 		  top: 1em;
@@ -255,55 +259,23 @@ a,
 		  border-radius: 15px;
 		  overflow: hidden;
 	}
+
 	.mix {
-		max-width: auto;
-		display: flex;
-		flex-direction: column;
-		position: relative;
-		top:3em;
-		left:50%;
-		right: 0;
-		transform: translateX(-50%);
-	}
-	
-	.mix img {
-	width: auto;
-	height: 9em;
-	border-radius: 15px;
-	margin-top: 2px;
-	}
+	width: 98%;
+	display: flex;
+	top: 2.5em;
+	left: 51%;
+	transform: translateX(-50%);
 }
 
-@media only screen and (max-width: 500px) {
-	.slideshow-container  {
-	 	  display: inline-flex;
-		  top: 1em;
-		  left: 50%;
-		  transform: translateX(-50%);
-		  /*max-width: 14em;*/
-		  width: auto;
-		  right: 5px;
-		  position: relative;
-		  border-radius: 15px;
-		  overflow: hidden;
-	}
-	.mix {
-		max-width: 15em;
-		display: inline-flex;
-		flex-direction: column;
-		position: relative;
-		top: 2em;
-		left:50%;
-		right: 0;
-		transform: translateX(-50%);
-	}
-	.mix img {
-	width: auto;
-	height: 5.8em;
-	border-radius: 15px;
-	margin-top: 2px;
-	}
+.mix img {
+	width: 45vw;
+	height: 25vw;
 }
+	
+}
+
+
 
 /* weblog */
 

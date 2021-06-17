@@ -1,8 +1,8 @@
-import { PostsData,SliderData }  from './hello.js'
+import { PostsData,SliderData,MixInfo }  from './hello.js'
 
 const postsDOM = document.querySelector('.weblog');
 const sliderDOM = document.querySelector('.sliderDATA');
-
+const mixDOM = document.querySelector('.mix');
 /* get weblogs item */
 class Posts {
 	getPosts() {
@@ -13,6 +13,12 @@ class Posts {
 class Sliders {
 	getSliders() {
 		return SliderData ;
+	}
+}
+
+class Mixs {
+	getMixInfos(){
+		return MixInfo;
 	}
 }
 
@@ -48,6 +54,15 @@ class UI {
 		});
 		sliderDOM.innerHTML = result;
 	}
+	displayMixInfo(mixInfos) {
+		let result = '';
+		mixInfos.forEach((mixInfo)=>{
+			result += `<a href=${mixInfo.img}>
+						<img src=${mixInfo.img} alt=${mixInfo.title} title=${getTitle(mixInfo.title)}>
+					</a>`
+		});
+		mixDOM.innerHTML = result;
+	}
 
 }
 
@@ -61,5 +76,9 @@ document.addEventListener('DOMContentLoaded',()=>{
 	const sliders = new Sliders();
 	const sliderData = sliders.getSliders();
 	ui.displaySliders(sliderData);
+	// get all mixInfos 
+	const mixs = new Mixs();
+	const mixInfoData = mixs.getMixInfos();
+	ui.displayMixInfo(mixInfoData);
 
 });

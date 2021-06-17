@@ -222,7 +222,7 @@ a,
 
 /* mix */
 .mix {
-	width: 44%;
+	width: 44vw;
 	display: inline-flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -230,9 +230,8 @@ a,
 	align-items: center;
 	align-content: space-around;
 	position: relative;
-	top: 2.5em;
-	left: 20%;
-	/*transform: translateX(110%);*/
+	top: 2.5rem;
+	left: 18%;
 }
 
 .mix img {
@@ -243,10 +242,21 @@ a,
 }
 
 
+@media only screen and (max-width: 1426px) {
+	.mix {
+		width: 44vw;
+		left: 13%;
+	}
+
+	.mix img {
+		width: 20vw;
+		height: 10vw;
+	}
+}
 
 
 
-@media only screen and (max-width: 1108px) {
+@media only screen and (max-width: 1208px) {
 	 .slideshow-container  {
 	 	  display: inline-flex;
 		  top: 1em;

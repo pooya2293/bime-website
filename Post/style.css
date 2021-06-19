@@ -226,6 +226,10 @@ a,
 	.weblog .text p {
 		padding-top: 10%;
 	}
+
+	.weblog .text .img i {
+		font-size: .7em;
+	}
 }
 
 

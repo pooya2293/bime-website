@@ -13,13 +13,22 @@ class UI {
 		let result = '';
 		let pResult = '';
 		infos.forEach((info)=>{
-			result += `<img src=${info.mainImage} alt="">
+			result += `${info.mainImage?`<img src=${info.mainImage} alt="">`:''}
 			<div class="text">
-				<h2>${info.title}</h2>
+				<span>${info.s ? info.s:'' }</span>
+				${info.title?`<h2>${info.title}</h2>`:''}
+				
+					${info.img?`<div class="img">
+						<img src=${info.img} alt="">
+					<i>${info.i}</i>
+					</div>`:''}
+					
+				
 				${info.p.map((item)=>{
 					return `<p>${item}</p>`
 				})}
 			</div>`
+
 			
 		});
 		result = result.replace(/,/g, "");//remove all coloms (,);

@@ -5,7 +5,7 @@ import * as Post from './Post/postData/index.js';
 import kholase2 from './splitData.js';
 
 
-window.console.log(eval(kholase2[1].title2));
+window.console.log(eval(kholase2[0].mainImage1));//https://www.bazicenter.com/wp-content/uploads/2020/09/god-of-war-ascension.jpg
 
 
 

@@ -1,5 +1,15 @@
 import { PostsData,SliderData,MixInfo,NavLinks }  from './datas/hello.js'
 
+import * as Post from './Post/postData/index.js';
+// window.console.log(Post);
+import kholase2 from './splitData.js';
+
+
+window.console.log(eval(kholase2[1].title2));
+
+
+
+
 const postsDOM = document.querySelector('.weblog');
 const sliderDOM = document.querySelector('.sliderDATA');
 const mixDOM = document.querySelector('.mix');
@@ -40,7 +50,7 @@ var key='';
 class UI {
 	displayPosts(posts) {
 		let result = '';
-		posts.forEach((post)=> {
+		posts.map((post)=> {
 			result += `<a href="#">
 						<img src=${post.img} alt=${post.title} title=${getTitle(post.title)} >
 					<div class="text">

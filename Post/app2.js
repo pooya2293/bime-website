@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
 			infos.forEach((info)=>{
 				result += `${info.mainImage?`<img src=${info.mainImage} alt="">`:''}
 				<div class="text">
-					<span>${info.s ? info.s:'' }</span>
+					${info.s?`<span>${info.s ? info.s:'' }</span>`:''}
 					${info.title?`<h2>${info.title}</h2>`:''}
 					
 						${info.img?`<div class="img">

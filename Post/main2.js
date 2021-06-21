@@ -16,5 +16,5 @@ navbar.classList.add("sticky");
 // layer.style.position = 'relative';
 ulLinks.classList.add('linksUl-scroll');
 ulLinks.style.top = '2.2px';
-logo.style.width = '70px';
+logo.style.width = '55px';
 

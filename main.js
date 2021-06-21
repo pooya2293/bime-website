@@ -63,7 +63,7 @@ function stickyNav() {
     layer.style.position = 'relative';
     ulLinks.classList.add('linksUl-scroll');
     ulLinks.style.top = '2.2px';
-    logo.style.width = '70px';
+    logo.style.width = '55px';
   } else  {
     navbar.classList.remove("sticky");
     layer.style.position = 'absolute';

@@ -162,7 +162,7 @@ a,
 	width: 90%;
 	font-size: 4vw;
 	letter-spacing: 2vw;
-	padding: 10vw 0;
+	padding: 0 0 10vw 0;
 
 }
 
@@ -217,7 +217,7 @@ a,
 
 	.weblog .text span {
 		font-size: 1.7rem;
-		padding: 10vw 0;
+		padding: 0 0 10vw 0;
 	}
 	.weblog .text .img {
 		padding: 6vw 0;

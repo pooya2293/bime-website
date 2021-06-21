@@ -50,9 +50,9 @@ class UI {
 		posts.map((post)=> {
 			result += `<a href="./Post/Post.html" data=${eval(post.id)} onclick="getData(event)">
 						<img src=${eval(post.mainImage)} alt=${eval(post.title)} title=${getTitle(eval(post.title))} data=${eval(post.id)}>
-					<div class="text">
-						<h2>${eval(post.title)}</h2>
-						<p>${eval(post.text).slice(0,80)} ...</p>
+					<div class="text" data=${eval(post.id)}>
+						<h2 data=${eval(post.id)}>${eval(post.title)}</h2>
+						<p data=${eval(post.id)}>${eval(post.text).slice(0,80)} ...</p>
 					</div>`
 		});
 		postsDOM.innerHTML = result;

@@ -8,11 +8,11 @@ for(let i=1;i<100;i++){
 }
 
 /* get Posts infos until length */
-var miniApi = '[';
+export var miniApi = '[';
 for(let i=1;i<=lengthPost;i++){
-	 miniApi += `{"mainImage" : "Post.Post${i}[0].mainImage","title":"Post.Post${i}[0].title","text":"Post.Post${i}[0].p[0]"},`;	
+	 miniApi += `{"id": ${i},"mainImage" : "Post.Post${i}[0].mainImage","title":"Post.Post${i}[0].title","text":"Post.Post${i}[0].p[0]"},`;	
 	}
-miniApi = miniApi.slice(0,lengthPost*100) + ']';
+miniApi = miniApi.slice(0,lengthPost*108) + ']';
 
 /* change apiResult to js Array*/
 let miniApiParse = JSON.parse(miniApi);

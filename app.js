@@ -1,7 +1,7 @@
 import { PostsData,SliderData,MixInfo,NavLinks }  from './datas/hello.js'
 import * as Post from './Post/postData/index.js';
 import miniApiParse from './splitData.js';
-
+// import {getData} from './Post/app2.js'
 
 
 
@@ -48,8 +48,8 @@ class UI {
 		let result = '';
 		let i=1;
 		posts.map((post)=> {
-			result += `<a href="#">
-						<img src=${eval(post.mainImage)} alt=${eval(post.title)} title=${getTitle(eval(post.title))} >
+			result += `<a href="./Post/Post.html" data=${eval(post.id)} onclick="getData(event)">
+						<img src=${eval(post.mainImage)} alt=${eval(post.title)} title=${getTitle(eval(post.title))} data=${eval(post.id)}>
 					<div class="text">
 						<h2>${eval(post.title)}</h2>
 						<p>${eval(post.text)}</p>
@@ -90,8 +90,10 @@ class UI {
 
 }
 
+
 document.addEventListener('DOMContentLoaded',()=>{
 	const ui = new UI();
+	
 	// get all posts
 	const posts = new Posts();
 	const postsData = posts.getPosts();
@@ -109,4 +111,15 @@ document.addEventListener('DOMContentLoaded',()=>{
 	const navLinks = nav.getNavLinks();
 	ui.displayNavLinks(navLinks);
 
+	const aTag =  postsDOM.querySelectorAll('a')
+	window.console.log(aTag);
 });
+
+
+window.getData = function getData(event) {
+    	localStorage.setItem('clickData',event.target.getAttribute('data'));
+}
+
+
+
+

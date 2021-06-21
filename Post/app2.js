@@ -3,11 +3,14 @@
 
 // import  Post2  from './postData/Post2.js';
 // import * as Post from './postData/index.js';
+// import {clickData} from '../app.js'
+const clickData2 = localStorage.getItem('clickData');
+window.console.log(clickData2);
 
 document.addEventListener('DOMContentLoaded',async()=>{
 
 	/**** dunamic import ****/
-	const pathData = 1<2 ? './postData/Post1.js' : './postData/Post2.js';
+	const pathData = `./postData/Post${clickData2}.js`;
 	const result =await import(pathData);
 	window.console.log(result.default);
 

@@ -1,5 +1,4 @@
-
-
+import { NavLinks }  from '../datas/HomeData.js'
 /* import what Post you click on Home Page */
 const clickData2 = localStorage.getItem('clickData');
 window.console.log(clickData2);
@@ -17,13 +16,19 @@ document.addEventListener('DOMContentLoaded',async()=>{
 	/**** linking to DOM ****/
 
 	const postInfoDOM = document.querySelector('.weblog');
+	const navLinksDOM = document.querySelector('.navLinks');
 	/* get weblog data */
 	 class Posts {
 		getPosts() {
 			return result.default;
 		}
 	}
-
+	/* get slider Data */
+	class Nav_Links {
+		getNavLinks(){
+			return NavLinks;
+		}
+	}
 	class UI {
 		displayPostInfo(infos){
 			let result = '';
@@ -50,6 +55,16 @@ document.addEventListener('DOMContentLoaded',async()=>{
 			result = result.replace(/,/g, "");//remove all coloms (,);
 			postInfoDOM.innerHTML = result ;
 		}
+		displayNavLinks(navLinks){
+			let result = '';
+			navLinks.forEach((link)=>{
+				result += `<li>
+							<a href=${link.url}>
+							${link.text}</a>
+						</li>`
+			});
+			navLinksDOM.innerHTML = result;
+	}
 	}
 
 	
@@ -58,6 +73,10 @@ document.addEventListener('DOMContentLoaded',async()=>{
 		const posts = new Posts();
 		const postsInfos = posts.getPosts();
 		ui.displayPostInfo(postsInfos);
+		// get all navLinks
+		const nav = new Nav_Links();
+		const navLinks = nav.getNavLinks();
+		ui.displayNavLinks(navLinks);
 
 });
 

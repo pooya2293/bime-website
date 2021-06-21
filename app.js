@@ -1,4 +1,4 @@
-import { PostsData,SliderData,MixInfo,NavLinks }  from './datas/hello.js'
+import { SliderData,MixInfo,NavLinks }  from './datas/HomeData.js'
 import * as Post from './Post/postData/index.js';
 import miniApiParse from './splitData.js';
 // import {getData} from './Post/app2.js'
@@ -52,7 +52,7 @@ class UI {
 						<img src=${eval(post.mainImage)} alt=${eval(post.title)} title=${getTitle(eval(post.title))} data=${eval(post.id)}>
 					<div class="text">
 						<h2>${eval(post.title)}</h2>
-						<p>${eval(post.text)}</p>
+						<p>${eval(post.text).slice(0,80)} ...</p>
 					</div>`
 		});
 		postsDOM.innerHTML = result;

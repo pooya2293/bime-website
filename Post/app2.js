@@ -1,12 +1,10 @@
-// import { result } from './postData/postTotal.js';
-// import { Post2 } from './postData/post2.js';
 
-// import  Post2  from './postData/Post2.js';
-// import * as Post from './postData/index.js';
-// import {clickData} from '../app.js'
+
+/* import what Post you click on Home Page */
 const clickData2 = localStorage.getItem('clickData');
 window.console.log(clickData2);
 
+/*** link post info's to Post page ***/
 document.addEventListener('DOMContentLoaded',async()=>{
 
 	/**** dunamic import ****/

@@ -49,7 +49,7 @@ class UI {
 		let i=1;
 		posts.map((post)=> {
 			result += `<a href="#">
-						<img src=${eval(post.mainImage)} alt=${eval(post.title)}  >
+						<img src=${eval(post.mainImage)} alt=${eval(post.title)} title=${getTitle(eval(post.title))} >
 					<div class="text">
 						<h2>${eval(post.title)}</h2>
 						<p>${eval(post.text)}</p>

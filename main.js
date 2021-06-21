@@ -13,7 +13,7 @@ let getSlidesItem = () => {
         setTimeout(function() {
             var slides = document.getElementsByClassName("mySlides");
             resolve(slides);
-        }, 5000);
+        }, 10000);
     });
 }
 async function render(){

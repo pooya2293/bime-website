@@ -1,14 +1,20 @@
 // make mini API from total posts info api's
 import * as Post from './Post/postData/index.js';
 
+/* get length of Post api's */
+var lengthPost= 0;
+for(let i=1;i<100;i++){
+	eval(`Post.Post${i}`)?lengthPost++ : '';
+}
 
-	var apiResult = '[';
-	for(let i=1;i<10;i++){
-		 apiResult += `{"mainImage${i}" : "Post.Post${i}[0].mainImage","title${i}":"Post.Post${i}[0].title","text${i}":"Post.Post${i}[0].p[0]"},`;	
+/* get Posts infos until length */
+var miniApi = '[';
+for(let i=1;i<=lengthPost;i++){
+	 miniApi += `{"mainImage" : "Post.Post${i}[0].mainImage","title":"Post.Post${i}[0].title","text":"Post.Post${i}[0].p[0]"},`;	
 	}
-	apiResult = apiResult + '{}]';
+miniApi = miniApi.slice(0,lengthPost*100) + ']';
 
+/* change apiResult to js Array*/
+let miniApiParse = JSON.parse(miniApi);
 
-let kholase2 = JSON.parse(apiResult);
-
-export default kholase2;
+export default miniApiParse;

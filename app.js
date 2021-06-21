@@ -1,15 +1,11 @@
 import { PostsData,SliderData,MixInfo,NavLinks }  from './datas/hello.js'
-
 import * as Post from './Post/postData/index.js';
-// window.console.log(Post);
-import kholase2 from './splitData.js';
-
-
-window.console.log(eval(kholase2[0].mainImage1));//https://www.bazicenter.com/wp-content/uploads/2020/09/god-of-war-ascension.jpg
+import miniApiParse from './splitData.js';
 
 
 
 
+/*** link Info's to UI ***/
 const postsDOM = document.querySelector('.weblog');
 const sliderDOM = document.querySelector('.sliderDATA');
 const mixDOM = document.querySelector('.mix');
@@ -17,7 +13,7 @@ const navLinksDOM = document.querySelector('.navLinks');
 /* get weblogs Data */
 class Posts {
 	getPosts() {
-		return PostsData ;
+		return miniApiParse ;
 	}
 }
 /* get slider Data */
@@ -50,12 +46,13 @@ var key='';
 class UI {
 	displayPosts(posts) {
 		let result = '';
+		let i=1;
 		posts.map((post)=> {
 			result += `<a href="#">
-						<img src=${post.img} alt=${post.title} title=${getTitle(post.title)} >
+						<img src=${eval(post.mainImage)} alt=${eval(post.title)}  >
 					<div class="text">
-						<h2>${post.title}</h2>
-						<p>${post.text}</p>
+						<h2>${eval(post.title)}</h2>
+						<p>${eval(post.text)}</p>
 					</div>`
 		});
 		postsDOM.innerHTML = result;

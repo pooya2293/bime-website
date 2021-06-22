@@ -1,4 +1,6 @@
-import { NavLinks }  from '../datas/HomeData.js'
+import {LminiApiParse} from '../miniAPI.js';
+import * as Post from '../index.js';
+
 /* import what Post you click on Home Page */
 const clickData2 = localStorage.getItem('clickData');
 window.console.log(clickData2);
@@ -7,10 +9,9 @@ window.console.log(clickData2);
 document.addEventListener('DOMContentLoaded',async()=>{
 
 	/**** dunamic import ****/
-	const pathData = `./postData/Post${clickData2}.js`;
+	const pathData = `./postData/${clickData2}.js`;
 	const result =await import(pathData);
 	window.console.log(result.default);
-
 
 
 	/**** linking to DOM ****/
@@ -26,13 +27,12 @@ document.addEventListener('DOMContentLoaded',async()=>{
 	/* get slider Data */
 	class Nav_Links {
 		getNavLinks(){
-			return NavLinks;
+			return LminiApiParse;
 		}
 	}
 	class UI {
 		displayPostInfo(infos){
 			let result = '';
-			let pResult = '';
 			infos.forEach((info)=>{
 				result += `${info.mainImage?`<img src=${info.mainImage} alt="">`:''}
 				<div class="text">
@@ -56,11 +56,11 @@ document.addEventListener('DOMContentLoaded',async()=>{
 			postInfoDOM.innerHTML = result ;
 		}
 		displayNavLinks(navLinks){
-			let result = '';
+			let result = '<li><a href="../index.html">خانه</a></li>';
 			navLinks.forEach((link)=>{
-				result += `<li>
-							<a href=${link.url}>
-							${link.text}</a>
+				result += `<li data="${link.id}" onclick="getData(event)">
+							<a data="${link.id}" href='./Post.html'>
+							${eval(link.linkTitle)}</a>
 						</li>`
 			});
 			navLinksDOM.innerHTML = result;
@@ -81,3 +81,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
 });
 
 
+/* Save data target event click */
+window.getData = function getData(event) {
+    	localStorage.setItem('clickData',event.target.getAttribute('data'));
+}

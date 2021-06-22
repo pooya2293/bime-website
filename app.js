@@ -1,10 +1,10 @@
 import { SliderData,MixInfo,NavLinks }  from './datas/HomeData.js'
-import * as Post from './Post/postData/index.js';
-import miniApiParse from './splitData.js';
+import * as Post from './index.js';
+import {PminiApiParse,LminiApiParse} from './miniAPI.js';
 // import {getData} from './Post/app2.js'
 
 
-
+window.console.log(PminiApiParse);
 /*** link Info's to UI ***/
 const postsDOM = document.querySelector('.weblog');
 const sliderDOM = document.querySelector('.sliderDATA');
@@ -13,7 +13,7 @@ const navLinksDOM = document.querySelector('.navLinks');
 /* get weblogs Data */
 class Posts {
 	getPosts() {
-		return miniApiParse ;
+		return PminiApiParse ;
 	}
 }
 /* get slider Data */
@@ -31,7 +31,7 @@ class Mixs {
 /* get slider Data */
 class Nav_Links {
 	getNavLinks(){
-		return NavLinks;
+		return LminiApiParse;
 	}
 }
 
@@ -46,14 +46,16 @@ var key='';
 class UI {
 	displayPosts(posts) {
 		let result = '';
-		let i=1;
 		posts.map((post)=> {
-			result += `<a href="./Post/Post.html" data=${eval(post.id)} onclick="getData(event)">
-						<img src=${eval(post.mainImage)} alt=${eval(post.title)} title=${getTitle(eval(post.title))} data=${eval(post.id)}>
-					<div class="text" data=${eval(post.id)}>
-						<h2 data=${eval(post.id)}>${eval(post.title)}</h2>
-						<p data=${eval(post.id)}>${eval(post.text).slice(0,80)} ...</p>
-					</div>`
+			result += `
+				<a href="./Post/Post.html" data="${post.id}" onclick="getData(event)">
+						<img src=${eval(post.mainImage)} alt=${eval(post.title)} title=${getTitle(eval(post.title))} data="${post.id}">
+					<div class="text" data="${post.id}">
+						<h2 data="${post.id}">${eval(post.title)}</h2>
+						<p data="${post.id}">${eval(post.text).slice(0,80)} ...</p>
+					</div>
+			</a>
+			`
 		});
 		postsDOM.innerHTML = result;
 	}
@@ -78,12 +80,12 @@ class UI {
 		mixDOM.innerHTML = result;
 	}
 	displayNavLinks(navLinks){
-		let result = '';
+		let result = '<li><a href="#">خانه</a></li>';
 		navLinks.forEach((link)=>{
-			result += `<li>
-						<a href=${link.url}>
-						${link.text}</a>
-					</li>`
+			result += `<li data="${link.id}" onclick="getData(event)">
+							<a data="${link.id}" href='./Post/Post.html'>
+							${eval(link.linkTitle)}</a>
+						</li>`
 		});
 		navLinksDOM.innerHTML = result;
 	}
@@ -113,12 +115,14 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 	const aTag =  postsDOM.querySelectorAll('a')
 	window.console.log(aTag);
+	localStorage.removeItem('clickData');
 });
 
-
+/* Save data target event click */
 window.getData = function getData(event) {
     	localStorage.setItem('clickData',event.target.getAttribute('data'));
 }
+
 
 
 

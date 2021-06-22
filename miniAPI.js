@@ -39,3 +39,24 @@ LminiApi = LminiApi.slice(0,-1) + ']';
 /* change apiResult to js Array*/
 export let LminiApiParse = JSON.parse(LminiApi);
 
+
+
+
+
+/* Make mini Mix API until lengthMix's */
+
+/* get length of Mix api's */
+let lengthMix= 0;
+for(let i=1;i<100;i++){
+	eval(`Post.Mix${i}`)?lengthMix++ : '';
+}
+
+let MminiApi = '[';
+for(let i=1;i<=lengthMix;i++){
+	 MminiApi += `{"id": "Mix${i}","mixImg" : "Post.Mix${i}[0].mainImage","mixTitle" : "Post.Mix${i}[0].MixTitle","mixUrl":"Post.Mix${i}[0].MixUrl"},`;	
+	}
+
+MminiApi = MminiApi.slice(0,-1) + ']';
+
+/* change apiResult to js Array*/
+export let MminiApiParse = JSON.parse(MminiApi);

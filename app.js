@@ -1,10 +1,8 @@
-import { SliderData,MixInfo,NavLinks }  from './datas/HomeData.js'
+import { SliderData,MixInfo }  from './datas/HomeData.js'
 import * as Post from './index.js';
-import {PminiApiParse,LminiApiParse} from './miniAPI.js';
-// import {getData} from './Post/app2.js'
+import {PminiApiParse,LminiApiParse,MminiApiParse} from './miniAPI.js';
 
-
-window.console.log(PminiApiParse);
+window.console.log(MminiApiParse);
 /*** link Info's to UI ***/
 const postsDOM = document.querySelector('.weblog');
 const sliderDOM = document.querySelector('.sliderDATA');
@@ -25,7 +23,7 @@ class Sliders {
 /* get MixInfos Data */
 class Mixs {
 	getMixInfos(){
-		return MixInfo;
+		return MminiApiParse;
 	}
 }
 /* get slider Data */
@@ -73,8 +71,8 @@ class UI {
 	displayMixInfo(mixInfos) {
 		let result = '';
 		mixInfos.forEach((mixInfo)=>{
-			result += `<a href=${mixInfo.img}>
-						<img src=${mixInfo.img} alt=${mixInfo.title} title=${getTitle(mixInfo.title)}>
+			result += `<a href="${eval(mixInfo.mixUrl)}" data="${mixInfo.id}">
+						<img src=${eval(mixInfo.mixImg)} alt=${eval(mixInfo.mixTitle)} title=${getTitle(eval(mixInfo.mixTitle))} data="${mixInfo.id}" onclick="getData(event)">
 					</a>`
 		});
 		mixDOM.innerHTML = result;
@@ -113,8 +111,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 	const navLinks = nav.getNavLinks();
 	ui.displayNavLinks(navLinks);
 
-	const aTag =  postsDOM.querySelectorAll('a')
-	window.console.log(aTag);
+	const aTag =  postsDOM.querySelectorAll('a');
 	localStorage.removeItem('clickData');
 });
 

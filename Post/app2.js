@@ -3,7 +3,6 @@ import * as Post from '../index.js';
 
 /* import what Post you click on Home Page */
 const clickData2 = localStorage.getItem('clickData');
-window.console.log(clickData2);
 
 /*** link post info's to Post page ***/
 document.addEventListener('DOMContentLoaded',async()=>{

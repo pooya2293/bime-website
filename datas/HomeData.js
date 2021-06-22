@@ -1,37 +1,3 @@
-
-export const NavLinks = [
-    {
-        id:1,
-        text:'خانه',
-        url:'#'
-    },
-    {
-        id:2,
-        text:'لینک ۱',
-        url:'#'
-    },
-    {
-        id:3,
-        text:'لینک ۲',
-        url:'#'
-    },
-    {
-        id:4,
-        text:'لینک ۳',
-        url:'#'
-    },
-    {
-        id:5,
-        text:'لینک ۴',
-        url:'#'
-    },
-    {
-        id:5,
-        text:'لینک ۵',
-        url:'#'
-    }
-]
-
 export const SliderData = [
     
     {

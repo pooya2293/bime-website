@@ -1,6 +1,5 @@
 @import url('https://v1.fontapi.ir/css/Mikhak');
 
-
 * {
 	margin: 0;
 	padding: 0;
@@ -36,7 +35,6 @@
 	font-size: 19px;
 	background-color: #fff;
 	transition: font-size,top 1.2s;
-
 }
 .navLinks li {
 	position: relative;
@@ -51,7 +49,7 @@ a,
 	margin-right: 10px;
 }
 
-.links ul li:nth-child(6) {
+.links ul li:last-child {
 	margin-left: 20px;
 }
 
@@ -62,6 +60,51 @@ a,
 .linksUl-scroll {
 	font-size: 16px !important;
 }
+.subLinks {
+	position: absolute;
+	top: 15px;
+	left: 50%;
+	transform: translate(-40%,5%);
+	width: 40%;
+}
+
+.subLinks ul  {
+	display: block; 
+	background-color: #fff;
+	padding: 5px 10px ;
+	border-radius: 15px;
+	box-shadow: 0 15px 25px rgba(0,0,0,.3);
+	transition:all 0.5s;
+	opacity: 0;
+	visibility: hidden;
+	height: auto;
+	padding: 12% 0;
+}
+.subLinks ul li {
+	display: inline-flex;
+	position: relative;
+	transform: translateX(10px);
+	width: 100%;
+	border-radius: 10px;
+} 
+#sub:hover span ul {
+	opacity: 1;
+	visibility: visible;
+	transform: translate(0,25%);
+}
+
+.subLinks ul::after {
+	content: '';
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	background-color: #fff;
+	border-radius: 2px;
+	left: 50%;
+	transform: rotate(45deg) translateX(-50%);
+	top: -1px;
+}
+
 @media screen and (max-width: 600px) {
 
 	.links ul {
@@ -69,7 +112,7 @@ a,
 		/*border-radius: 15px;*/
 		width: 40px;
 		height: 40px;
-		overflow: hidden;
+		/*overflow: hidden;*/
 		transition: background-color 1s,width 1s ,height 1s;
 	}
 	.links.responsive ul {
@@ -104,9 +147,26 @@ a,
 	.responsive .icon {
 		left: 0;
 	}
-	
-}
 
+	.subLinks ul::after {
+		position: static;
+	}
+	.subLinks {
+		position: absolute;
+		top: 10px;
+		left: 29%;
+		transform: translate(80%,5%);
+		width: 60%;
+	}
+	.subLinks ul {
+		transition: all .7s !important;
+		height: auto!important;
+		padding: 5%;
+	}
+	#sub:hover span ul {
+		transform: translate(-130%,0);
+	}
+}
 
 /* Slideshow container */
 
@@ -274,21 +334,19 @@ a,
 	}
 
 	.mix {
-	width: 98%;
-	display: flex;
-	top: 2.5em;
-	left: 51%;
-	transform: translateX(-50%);
-}
+		width: 98%;
+		display: flex;
+		top: 2.5em;
+		left: 51%;
+		transform: translateX(-50%);
+	}
 
-.mix img {
-	width: 45vw;
-	height: 25vw;
-}
+	.mix img {
+		width: 45vw;
+		height: 25vw;
+	}
 	
 }
-
-
 
 /* weblog */
 

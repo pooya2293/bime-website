@@ -68,7 +68,6 @@ for(let i=1;i<=lengthLink;i++){
 LminiApi = LminiApi.slice(0,-1) + ']';
 /* change apiResult to js Array*/
 export let LminiApiParse = JSON.parse(LminiApi);
-window.console.log(LminiApiParse);
 
 
 

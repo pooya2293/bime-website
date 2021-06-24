@@ -84,15 +84,17 @@ class UI {
 		let subResult ='';
 		var subNavLinksDOM;
 		navLinks.forEach((link,index)=>{
-			const {id,linkTitle,subLinks}=link;
+			const {id,subLinks,subTitle}=link;
 			result += (eval(link.sub))?`<li id="sub">
 						<a href="javascript:void(0)">${eval(link.subTitle)}</a>
-						<span class='subLinks'>
+						<span class='subLinks' data-main="${eval(subTitle)}">
 						<ul id="subUl${index}">
-						${subLinks.forEach((link)=>{
-						subResult +=`<li onclick="getData(event)" data="${link.id}">
-								<a href='./Post/Post.html' data="${link.id}">${eval(link.subLinkTitle)}</a>
-								</li>`
+						${subLinks.forEach((item)=>{
+							const {id,subLinkTitle} = item;
+							 subResult +=`<li onclick="getData(event)" data="${id}" data-main="${eval(subTitle)}">
+								<a href='./Post/Post.html' data="${id}">${eval(subLinkTitle)}</a>
+								</li>`;
+							
 						})};
 						
 						</ul>
@@ -102,17 +104,39 @@ class UI {
 						</li>`:'')
 
 		});
-		
+
 		navLinksDOM.innerHTML = result;
+
 		for(let i=0;i<10;i++){
 			if(document.querySelector(`#subUl${i}`)){
 			subNavLinksDOM = document.querySelector(`#subUl${i}`);
 			subNavLinksDOM.innerHTML=subResult;
-			}		
+		
+			}
 		}
-		// (subNavLinksDOM?subNavLinksDOM.innerHTML=subResult:'');
-	}
 
+		function filterSubs(){	
+			let mainData =document.querySelectorAll('.subLinks');
+			let mainData2 = subNavLinksDOM.querySelector('li');
+			let subFilter = '';
+			for(var k=0;k<mainData.length;k++){
+					//get whole li
+					let dynamicUlDOM=mainData[k].getElementsByTagName('ul')[0].getElementsByTagName('li');
+				for(let j=1;j<dynamicUlDOM.length;j++){
+						let dynamicLiDOM = dynamicUlDOM[j];
+						window.console.log(j)
+						//if data li = data ul 
+						if(dynamicLiDOM.dataset.main===mainData[k].dataset.main){
+						}else{
+							dynamicUlDOM[j].remove();
+						}
+					}	
+			}
+		}
+		filterSubs();
+		// (subNavLinksDOM?subNavLinksDOM.innerHTML=subResult:'');
+	
+	}
 }
 
 

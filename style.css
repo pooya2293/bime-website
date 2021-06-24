@@ -87,6 +87,7 @@ a,
 	width: 100%;
 	border-radius: 10px;
 } 
+ 
 #sub:hover span ul {
 	opacity: 1;
 	visibility: visible;

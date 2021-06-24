@@ -115,29 +115,24 @@ class UI {
 			}
 		}
 
+		
 		function filterSubs(){	
 			let mainData =document.querySelectorAll('.subLinks');
 			let mainData2 = subNavLinksDOM.querySelector('li');
-			let mainData3 = subNavLinksDOM.querySelector('ul');
 			let subFilter = '';
-			//get whole li
-			
-			// let dynamicLiDOM = dynamicUlDOM[0];
-			var arr0= [].slice.call(mainData);
-			
-			for(let i=0;i<mainData.length;i++){
-				let dynamicUlDOM=mainData[i].getElementsByTagName('ul')[0].getElementsByTagName('li');
-				var arr = [].slice.call(dynamicUlDOM);
-				window.console.log(arr);
-				let result='';
-				arr.map((item,index)=>{
-					arr0.map((ul,number)=>{
-						result += (item.dataset.main === ul.dataset.main?item.outerHTML:'')
-					})
-					window.console.log(result);
-				})
+			for(var k=0;k<mainData.length;k++){
+					//get whole li
+					let dynamicUlDOM=mainData[k].getElementsByTagName('ul')[0].getElementsByTagName('li');
+				for(let j=0;j<dynamicUlDOM.length;j++){
+						let dynamicLiDOM = dynamicUlDOM[j];
+						//if data li = data ul 
+						if(dynamicLiDOM.dataset.main===mainData[k].dataset.main){
+						}else{
+							window.console.log(dynamicLiDOM,mainData[k])
+							dynamicLiDOM.innerHTML = '<di class="filtered"></di>' ;
+						}
+					}	
 			}
-			
 		}
 		filterSubs();
 		// (subNavLinksDOM?subNavLinksDOM.innerHTML=subResult:'');

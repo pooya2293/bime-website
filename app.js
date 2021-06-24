@@ -82,14 +82,15 @@ class UI {
 	displayNavLinks(navLinks){
 		let result = '<li><a href="#">خانه</a></li>';
 		let subResult ='';
-		navLinks.map((link,index)=>{
+		var subNavLinksDOM;
+		navLinks.forEach((link,index)=>{
 			const {id,linkTitle,subLinks}=link;
 			result += (eval(link.sub))?`<li id="sub">
 						<a href="javascript:void(0)">${eval(link.subTitle)}</a>
 						<span class='subLinks'>
-						<ul id="subUl">
-						${subLinks.map((link)=>{
-							subResult +=`<li onclick="getData(event)" data="${link.id}">
+						<ul id="subUl${index}">
+						${subLinks.forEach((link)=>{
+						subResult +=`<li onclick="getData(event)" data="${link.id}">
 								<a href='./Post/Post.html' data="${link.id}">${eval(link.subLinkTitle)}</a>
 								</li>`
 						})};
@@ -99,10 +100,17 @@ class UI {
 							<a data="${link.id}" href='./Post/Post.html'>
 							${eval(link.linkTitle)}</a>
 						</li>`:'')
+
 		});
+		
 		navLinksDOM.innerHTML = result;
-		var subNavLinksDOM = document.querySelector('#subUl');
-		(subNavLinksDOM?subNavLinksDOM.innerHTML=subResult:'');
+		for(let i=0;i<10;i++){
+			if(document.querySelector(`#subUl${i}`)){
+			subNavLinksDOM = document.querySelector(`#subUl${i}`);
+			subNavLinksDOM.innerHTML=subResult;
+			}		
+		}
+		// (subNavLinksDOM?subNavLinksDOM.innerHTML=subResult:'');
 	}
 
 }

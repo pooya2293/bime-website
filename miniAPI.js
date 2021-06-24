@@ -32,7 +32,7 @@ for(let i=1;i<100;i++){
 let nestFor=',"subLinks":[';
 const nestForFunc=()=>{
 	for(let i=1;i<=lengthLink;i++){
-	 		nestFor += (eval(`Post.Link${i}[0].sub`)?`{"subLinkTitle":"Post.Link${i}[0].subLinkTitle"},`:'')
+	 		nestFor += (eval(`Post.Link${i}[0].sub`)?`{"id": "Link${i}","subLinkTitle":"Post.Link${i}[0].subLinkTitle"},`:'')
 	 	}
 	nestFor = nestFor.slice(0,-1) + ']';
 }
@@ -45,9 +45,9 @@ for(let i=1;i<=lengthLink;i++){
 	}
 
 LminiApi = LminiApi.slice(0,-1) + ']';
-
 /* change apiResult to js Array*/
 export let LminiApiParse = JSON.parse(LminiApi);
+window.console.log(LminiApiParse);
 
 
 

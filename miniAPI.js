@@ -29,16 +29,25 @@ for(let i=1;i<100;i++){
 	eval(`Post.Link${i}`)?lengthLink++ : '';
 }
 
+let nestFor=',"subLinks":[';
+const nestForFunc=()=>{
+	for(let i=1;i<=lengthLink;i++){
+	 		nestFor += (eval(`Post.Link${i}[0].sub`)?`{"subLinkTitle":"Post.Link${i}[0].subLinkTitle"},`:'')
+	 	}
+	nestFor = nestFor.slice(0,-1) + ']';
+}
+nestForFunc();
 let LminiApi = '[';
 for(let i=1;i<=lengthLink;i++){
-	 LminiApi += `{"id": "Link${i}","linkTitle" : "Post.Link${i}[0].linkTitle"},`;	
+	 LminiApi += `{"id": "Link${i}","linkTitle":"Post.Link${i}[0].linkTitle"${
+	 		(eval(`Post.Link${i}[0].sub`)&&eval(`Post.Link${i}[0].subMain`)?`,"sub":"Post.Link${i}[0].sub","subTitle":"Post.Link${i}[0].subTitle"${nestFor}`:'') 
+	 	}},`;	
 	}
 
 LminiApi = LminiApi.slice(0,-1) + ']';
 
 /* change apiResult to js Array*/
 export let LminiApiParse = JSON.parse(LminiApi);
-
 
 
 

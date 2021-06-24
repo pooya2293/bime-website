@@ -2,12 +2,14 @@ import { SliderData,MixInfo }  from './datas/HomeData.js'
 import * as Post from './index.js';
 import {PminiApiParse,LminiApiParse,MminiApiParse} from './miniAPI.js';
 
-window.console.log(MminiApiParse);
+
 /*** link Info's to UI ***/
 const postsDOM = document.querySelector('.weblog');
 const sliderDOM = document.querySelector('.sliderDATA');
 const mixDOM = document.querySelector('.mix');
 const navLinksDOM = document.querySelector('.navLinks');
+
+
 /* get weblogs Data */
 class Posts {
 	getPosts() {
@@ -79,13 +81,28 @@ class UI {
 	}
 	displayNavLinks(navLinks){
 		let result = '<li><a href="#">خانه</a></li>';
-		navLinks.forEach((link)=>{
-			result += `<li data="${link.id}" onclick="getData(event)">
+		let subResult ='';
+		navLinks.map((link,index)=>{
+			const {id,linkTitle,subLinks}=link;
+			result += (eval(link.sub))?`<li id="sub">
+						<a href="javascript:void(0)">${eval(link.subTitle)}</a>
+						<span class='subLinks'>
+						<ul id="subUl">
+						${subLinks.map((link)=>{
+							subResult +=`<li onclick="getData(event)" data="${link.id}">
+								<a href='./Post/Post.html' data="${link.id}">${eval(link.subLinkTitle)}</a>
+								</li>`
+						})};
+						
+						</ul>
+						</span>`:(eval(link.linkTitle)?`<li data="${link.id}" onclick="getData(event)">
 							<a data="${link.id}" href='./Post/Post.html'>
 							${eval(link.linkTitle)}</a>
-						</li>`
+						</li>`:'')
 		});
 		navLinksDOM.innerHTML = result;
+		var subNavLinksDOM = document.querySelector('#subUl');
+		(subNavLinksDOM?subNavLinksDOM.innerHTML=subResult:'');
 	}
 
 }

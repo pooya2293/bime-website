@@ -54,16 +54,67 @@ document.addEventListener('DOMContentLoaded',async()=>{
 			result = result.replace(/,/g, "");//remove all coloms (,);
 			postInfoDOM.innerHTML = result ;
 		}
-		displayNavLinks(navLinks){
+			displayNavLinks(navLinks){
 			let result = '<li><a href="../index.html">خانه</a></li>';
-			navLinks.forEach((link)=>{
-				result += `<li data="${link.id}" onclick="getData(event)">
-							<a data="${link.id}" href='./Post.html'>
-							${eval(link.linkTitle)}</a>
-						</li>`
+			let subResult ='';
+			var subNavLinksDOM;
+			navLinks.forEach((link,index)=>{
+				const {id,subLinks,subTitle}=link;
+				result += (eval(link.sub))?`<li id="sub" onclick="displaySubMenue(event)">
+							<a href="javascript:void(0)">${eval(link.subTitle)}</a>
+							<span class='subLinks' data-main="${eval(subTitle)}">
+							<ul id="subUl${index}">
+							${subLinks.forEach((item)=>{
+								const {id,subLinkTitle} = item;
+								 subResult +=`<li onclick="getData(event)" data="${id}" data-main="${eval(subTitle)}">
+									<a href='./Post.html' data="${id}">${eval(subLinkTitle)}</a>
+									</li>`;
+								
+							})};
+							
+							</ul>
+							</span>`:(eval(link.linkTitle)?`<li data="${link.id}" onclick="getData(event)">
+								<a data="${link.id}" href='./Post.html'>
+								${eval(link.linkTitle)}</a>
+							</li>`:'')
+
 			});
+
 			navLinksDOM.innerHTML = result;
-	}
+
+			for(let i=0;i<10;i++){
+				if(document.querySelector(`#subUl${i}`)){
+				subNavLinksDOM = document.querySelector(`#subUl${i}`);
+				subNavLinksDOM.innerHTML=subResult;
+			
+				}
+			}
+
+			
+			function filterSubs(){	
+				let mainData =document.querySelectorAll('.subLinks');
+				let mainData2 = subNavLinksDOM.querySelector('li');
+				let subFilter = '';
+				for(var k=0;k<mainData.length;k++){
+						//get whole li
+						let dynamicUlDOM=mainData[k].getElementsByTagName('ul')[0].getElementsByTagName('li');
+					for(let j=0;j<dynamicUlDOM.length;j++){
+							let dynamicLiDOM = dynamicUlDOM[j];
+							//if data li = data ul 
+							if(dynamicLiDOM.dataset.main===mainData[k].dataset.main){
+								dynamicLiDOM.className='filter';
+
+							}else{
+
+								dynamicLiDOM.innerHTML = '' ;
+								dynamicLiDOM.style.position = 'absolute';
+							}
+						}	
+				}
+			}
+			filterSubs();
+		
+		}
 	}
 
 	
@@ -83,4 +134,29 @@ document.addEventListener('DOMContentLoaded',async()=>{
 /* Save data target event click */
 window.getData = function getData(event) {
     	localStorage.setItem('clickData',event.target.getAttribute('data'));
+}
+
+window.displaySubMenue = function(e){
+	
+	const tempBtn = e.target.getBoundingClientRect();
+
+	const SubSpan = e.path[1].getElementsByTagName('span')[0];
+	const UlInSpan = e.path[1].getElementsByTagName('ul')[0];
+
+ 	if(UlInSpan.className === "show"){
+ 		UlInSpan.classList.toggle("show");
+ 	}else{
+ 		document.querySelectorAll('.show').forEach(e => e.classList.remove("show"));
+ 		UlInSpan.classList.toggle("show");
+ 	}
+
+}
+
+// click navbar hide sublinks 
+window.handleSubmenu= function (e){
+	// if event target = DIV only remove .show
+	if(e.target.tagName === 'DIV'){
+		document.querySelectorAll('.show').forEach(e => e.classList.remove("show"));
+	}
+
 }

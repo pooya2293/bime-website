@@ -86,12 +86,6 @@ a,
 	border-radius: 10px;
 } 
  
-/*#sub:hover span ul {
-	opacity: 1;
-	visibility: visible;
-	left:0;
-	transform: translate(40%,35px);
-}*/
 
 #sub .show  {
 	opacity: 1;
@@ -178,9 +172,7 @@ a,
 	}
 
 
-	/*#sub:hover span ul {
-		transform: translate(-100%,10%);
-	}*/
+
 	#sub .show {
 		transform: translate(-100%,10%);
 	}

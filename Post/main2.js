@@ -10,7 +10,12 @@ const openLinks= ()=>{
 	links.classList.toggle('responsive');
 }
 const content = document.querySelector('.content');
-content.addEventListener('click',()=>document.querySelector('.links').classList.remove('responsive'));
+content.addEventListener('click',()=>{
+  	// if click to content close navbar
+ 	document.querySelector('.links').classList.remove('responsive')
+  	// if click to content close sublinks
+ 	document.querySelectorAll('.show').forEach(e => e.classList.remove("show")); 
+}); 
 
 navbar.classList.add("sticky");
 // layer.style.position = 'relative';

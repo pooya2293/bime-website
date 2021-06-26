@@ -51,7 +51,7 @@ a,
 	margin-right: 10px;
 }
 
-.links ul li:nth-child(6) {
+.links ul li:last-child {
 	margin-left: 20px;
 }
 
@@ -62,6 +62,51 @@ a,
 .linksUl-scroll {
 	font-size: 16px !important;
 }
+
+.subLinks ul  {
+	position: absolute;
+	left: 0;
+	transform: translateX(40%);
+	display: block; 
+	background-color: #fff;
+	padding: 5px 10px ;
+	border-radius: 15px;
+	box-shadow: 0 15px 25px rgba(0,0,0,.3);
+	transition:all 0.5s;
+	opacity: 0;
+	visibility: hidden;
+	height: auto;
+	width: 220px;
+	padding: 10px 25px 10px 0;
+}
+.subLinks ul li {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	transform: translateX(10px);
+	width: auto;
+	border-radius: 10px;
+} 
+ 
+#sub .show  {
+	opacity: 1;
+	visibility: visible;
+	left:0;
+	transform: translate(40%,35px);
+}
+
+.subLinks ul::after {
+	content: '';
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	background-color: #fff;
+	border-radius: 2px;
+	left: 50%;
+	transform: rotate(45deg) translateX(-50%);
+	top: -1px;
+	z-index: -1;
+}
 @media screen and (max-width: 600px) {
 
 	.links ul {
@@ -69,7 +114,6 @@ a,
 		/*border-radius: 15px;*/
 		width: 40px;
 		height: 40px;
-		overflow: hidden;
 		transition: background-color 1s,width 1s ,height 1s;
 	}
 	.links.responsive ul {
@@ -104,7 +148,28 @@ a,
 	.responsive .icon {
 		left: 0;
 	}
-	
+
+	.subLinks ul::after {
+		position: static;
+	}
+	.subLinks {
+		position: absolute;
+		top: 10px;
+		left: -10%;
+		transform: translate(80%,1%);
+		width: 100%;
+		z-index: 3;
+	}
+	.subLinks ul {
+		transition: all .7s !important;
+		height: auto!important;
+		padding: 5%;
+		width: 100% !important;
+	}
+
+	#sub .show {
+		transform: translate(-100%,10%);
+	}
 }
 
 

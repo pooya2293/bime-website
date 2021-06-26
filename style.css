@@ -7,6 +7,7 @@
 	font-family: 'Mikhak', sans-serif;
 }
 
+
 .navbar {
 	position: relative;
 	background: url(./images/nav.jpg) no-repeat fixed ;
@@ -18,7 +19,7 @@
 .logo img {
 	position: relative;
 	width: 100px;
-	z-index: 2;
+	z-index: 0;
 	transition: width 1s;
 }
 
@@ -91,7 +92,7 @@ a,
 	opacity: 1;
 	visibility: visible;
 	left:0;
-	transform: translate(40%,35px);
+	transform: translate(40%,45px);
 }
 
 .subLinks ul::after {
@@ -115,21 +116,21 @@ a,
 	}
 	.links ul {
 		display: block;
-		/*border-radius: 15px;*/
 		width: 40px;
 		height: 40px;
-		/*overflow: hidden;*/
 		transition: background-color 1s,width 1s ,height 1s;
 	}
 	.links.responsive ul {
 		transition: background-color 1s,width 1s ,height 1s;
-		width: 70%;
+		width: 90%;
 		height: 300px;
 		background-color: #3c3434;
 	}
 
-	.links.responsive a {
+	.links.responsive a,
+	.links.responsive ul li a {
 		color: #fff;
+		width: 160%;
 	}
 
 	.links ul li{
@@ -160,21 +161,20 @@ a,
 	.subLinks {
 		position: absolute;
 		top: 10px;
-		left: -10%;
-		transform: translate(80%,1%);
+		left: -50%;
 		width: 100%;
+		z-index: 3;
 	}
 	.subLinks ul {
 		transition: all .7s !important;
 		height: auto!important;
 		padding: 5%;
 		width: 100% !important;
+
 	}
 
-
-
 	#sub .show {
-		transform: translate(-100%,10%);
+		transform: translate(30%,0);
 	}
 }
 

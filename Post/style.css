@@ -19,7 +19,7 @@
 .logo img {
 	position: relative;
 	width: 100px;
-	z-index: 2;
+	z-index: 0;
 	transition: width 1s;
 }
 
@@ -123,8 +123,10 @@ a,
 		background-color: #3c3434;
 	}
 
-	.links.responsive a {
+	.links.responsive a,
+	.links.responsive ul li a {
 		color: #fff;
+		width: 160%;
 	}
 
 	.links ul li{
@@ -155,8 +157,7 @@ a,
 	.subLinks {
 		position: absolute;
 		top: 10px;
-		left: -10%;
-		transform: translate(80%,1%);
+		left: -50%;
 		width: 100%;
 		z-index: 3;
 	}
@@ -168,7 +169,7 @@ a,
 	}
 
 	#sub .show {
-		transform: translate(-100%,10%);
+		transform: translate(30%,0);
 	}
 }
 

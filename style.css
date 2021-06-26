@@ -76,8 +76,8 @@ a,
 	visibility: hidden;
 	height: auto;
 	width: 220px;
-	padding: 10px 25px 10px 0;
 }
+
 .subLinks ul li {
 	display: flex;
 	flex-direction: column;
@@ -130,7 +130,6 @@ a,
 	.links.responsive a,
 	.links.responsive ul li a {
 		color: #fff;
-		width: 160%;
 	}
 
 	.links ul li{
@@ -143,8 +142,33 @@ a,
 	}
 	.links.responsive ul li {
 		display: flex;
-		margin: .5em 0 0 3em;
+		justify-content: center;
+		align-items: flex-start;
+		text-align: center;
+		background-color: rgba(255,255,255,.05);
+		border-radius: 12px;
+		height: 40px ;
+		width: 100%;
+		margin: 5px 0 0 5px;
+		padding-top: 3px;
 	}
+	
+	/*hover change button li sub and link bg*/
+	.subLinks ul li:hover,
+	.links.responsive ul li:hover{
+		background-color: rgba(255,255,255,.15) !important;
+	}
+
+
+	.links.responsive ul li a {
+		width: 100%;
+	}
+
+	.subLinks ul li {
+		margin-right: 9px !important;
+		background-color: rgba(255,255,255,.25) !important;
+	}
+
 	.icon {
 		position: relative;
 		left: 15%;
@@ -160,7 +184,7 @@ a,
 	}
 	.subLinks {
 		position: absolute;
-		top: 10px;
+		top: 30px;
 		left: -50%;
 		width: 100%;
 		z-index: 3;
@@ -168,13 +192,15 @@ a,
 	.subLinks ul {
 		transition: all .7s !important;
 		height: auto!important;
-		padding: 5%;
 		width: 100% !important;
-
 	}
 
 	#sub .show {
-		transform: translate(30%,0);
+		transform: translate(50%,0);
+	}
+
+	.links ul li:last-child {
+	margin-left: 0;
 	}
 }
 

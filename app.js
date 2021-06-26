@@ -133,6 +133,7 @@ class UI {
 
 							dynamicLiDOM.innerHTML = '' ;
 							dynamicLiDOM.style.position = 'absolute';
+							dynamicLiDOM.style.visibility = 'hidden';
 						}
 					}	
 			}

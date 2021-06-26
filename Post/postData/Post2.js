@@ -17,7 +17,7 @@
 	},
 	{
 		title:'تعداد نفرات قابل پوشش در بیمه نامه ثالث در داخل و خارج از اتومبیل:',
-		img:'https://lh3.googleusercontent.com/proxy/a_tKoy0j1qkll9Yqsanr1RwPxM7EEGdTNkRzWZUPDdn6woEidmtyom5msmZlIhTH34NiS6qZgvn8lkVxRnsyvkHCyJv6av8UOQ4XLUaHg7PY3xnysH8BY3Sm68DKTGEP6W_Kyn2v1wKQWrxGdlgYSOThkQD29rhYdnAWO43CUV7gfvsA5LllU1ryRF77rYTwQth7LkXHhUTht1xwg2rLL77Gg-A2YEokR4rL9llkhVcxnU5P_wt56_XPKe014-rWptJIv_M68G-sMWJqRIymZKRRgGxIw__MvClg_ahxslrvMHiajsN57FhXUvVGdDqefY0-nx-mNuUEHGGWTOQ5QOQEqofq0FCdokSe5DsZZIKQDCq8',
+		img:'https://cdn.isna.ir/d/2019/03/11/3/57844724.jpg',
 		i:'تعداد نفرات قابل پوشش در بیمه نامه ثالث',
 		p:['در داخل وسیله نقلیه تعداد ظرفیت مجاز ثبت شده در کارت ماشین می باشد که جنین و کودکان زیر دوسال به ظرفیت ماشین اضافه می شوند و تعهد ریالی بیمه گر در قبال زیان دیدگان خارج از وسیله نقلیه مسبب حادثه ده برابر سقف تعهدات بدنی بیمه نامه با رعایت تبصره ماده 9 و ماده 13 این قانون می باشد.','در مواردی که مجموع خسارات بدنی زیان دیدگان خارج از وسیله نقلیه مسبب حادثه بیش ازسقف مذکور باشد مبلغ خسارت مورد تعهد بیمه گر به نسبت خسارت وارد شده به هر یك از زیان دیدگان بین آنان تسهیم می گردد و مابه التفاوت خسارت بدنی هر یك از زیان دیدگان توسط صندوق تأمین خسارت های بدنی طبق مقررات مربوط پرداخت می شود .']
 	},

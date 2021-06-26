@@ -85,7 +85,7 @@ class UI {
 		var subNavLinksDOM;
 		navLinks.forEach((link,index)=>{
 			const {id,subLinks,subTitle}=link;
-			result += (eval(link.sub))?`<li id="sub" onmouseover="displaySubMenue(event)">
+			result += (eval(link.sub))?`<li id="sub" onclick="displaySubMenue(event)">
 						<a href="javascript:void(0)">${eval(link.subTitle)}</a>
 						<span class='subLinks' data-main="${eval(subTitle)}">
 						<ul id="subUl${index}">
@@ -138,8 +138,6 @@ class UI {
 			}
 		}
 		filterSubs();
-		// (subNavLinksDOM?subNavLinksDOM.innerHTML=subResult:'');
-		
 	
 	}
 }
@@ -177,18 +175,25 @@ window.getData = function getData(event) {
 
 window.displaySubMenue = function(e){
 	
-	const page = e.target.textContent;
 	const tempBtn = e.target.getBoundingClientRect();
-	const width = tempBtn.width;
-	const center = tempBtn.left/4;
-	const bottom = tempBtn.bottom - 20;
+
 	const SubSpan = e.path[1].getElementsByTagName('span')[0];
-	// const UlInSpan = e.path[1].getElementsByTagName('span')[0].getElementsByTagName('ul')[0];
+	const UlInSpan = e.path[1].getElementsByTagName('ul')[0];
 
-	// SubSpan.style.left = `${center}px`;
-	// SubSpan.style.top = `${bottom}px`;
+ 	if(UlInSpan.className === "show"){
+ 		UlInSpan.classList.toggle("show");
+ 	}else{
+ 		document.querySelectorAll('.show').forEach(e => e.classList.remove("show"));
+ 		UlInSpan.classList.toggle("show");
+ 	}
 
-	
 }
 
+// click navbar hide sublinks 
+window.handleSubmenu= function (e){
+	// if event target = DIV only remove .show
+	if(e.target.tagName === 'DIV'){
+		document.querySelectorAll('.show').forEach(e => e.classList.remove("show"));
+	}
 
+}

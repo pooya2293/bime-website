@@ -46,7 +46,7 @@ a,
 .links ul li {
 	text-decoration: none;
 	list-style: none;
-	margin-right: 10px;
+	margin-right: 13px;
 }
 
 .links ul li:last-child {
@@ -60,15 +60,11 @@ a,
 .linksUl-scroll {
 	font-size: 16px !important;
 }
-.subLinks {
-	position: absolute;
-	top: 15px;
-	left: 50%;
-	transform: translate(-40%,5%);
-	width: 40%;
-}
 
 .subLinks ul  {
+	position: absolute;
+	left: 0;
+	transform: translateX(40%);
 	display: block; 
 	background-color: #fff;
 	padding: 5px 10px ;
@@ -78,20 +74,23 @@ a,
 	opacity: 0;
 	visibility: hidden;
 	height: auto;
-	padding: 12% 0;
+	width: 220px;
+	padding: 10px 25px 10px 0;
 }
 .subLinks ul li {
-	display: inline-flex;
+	display: flex;
+	flex-direction: column;
 	position: relative;
 	transform: translateX(10px);
-	width: 100%;
+	width: auto;
 	border-radius: 10px;
 } 
  
 #sub:hover span ul {
 	opacity: 1;
 	visibility: visible;
-	transform: translate(0,25%);
+	left:0;
+	transform: translate(40%,35px);
 }
 
 .subLinks ul::after {
@@ -104,10 +103,15 @@ a,
 	left: 50%;
 	transform: rotate(45deg) translateX(-50%);
 	top: -1px;
+	z-index: -1;
 }
 
 @media screen and (max-width: 600px) {
-
+	a,
+	.links ul a ,
+	.links ul li {
+		margin-right: 10px;
+	}
 	.links ul {
 		display: block;
 		/*border-radius: 15px;*/
@@ -131,6 +135,7 @@ a,
 		font-size: 19px;
 		display: none;
 	}
+
 	.links ul .icon {
 		display: block;
 	}
@@ -154,17 +159,20 @@ a,
 	.subLinks {
 		position: absolute;
 		top: 10px;
-		left: 29%;
-		transform: translate(80%,5%);
-		width: 60%;
+		left: -10%;
+		transform: translate(80%,1%);
+		width: 100%;
 	}
 	.subLinks ul {
 		transition: all .7s !important;
 		height: auto!important;
 		padding: 5%;
+		width: 100% !important;
 	}
+
+
 	#sub:hover span ul {
-		transform: translate(-130%,0);
+		transform: translate(-100%,10%);
 	}
 }
 

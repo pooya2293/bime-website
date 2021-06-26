@@ -85,7 +85,7 @@ class UI {
 		var subNavLinksDOM;
 		navLinks.forEach((link,index)=>{
 			const {id,subLinks,subTitle}=link;
-			result += (eval(link.sub))?`<li id="sub">
+			result += (eval(link.sub))?`<li id="sub" onmouseover="displaySubMenue(event)">
 						<a href="javascript:void(0)">${eval(link.subTitle)}</a>
 						<span class='subLinks' data-main="${eval(subTitle)}">
 						<ul id="subUl${index}">
@@ -127,18 +127,23 @@ class UI {
 						let dynamicLiDOM = dynamicUlDOM[j];
 						//if data li = data ul 
 						if(dynamicLiDOM.dataset.main===mainData[k].dataset.main){
+							dynamicLiDOM.className='filter';
+
 						}else{
-							window.console.log(dynamicLiDOM,mainData[k])
-							dynamicLiDOM.innerHTML = '<di class="filtered"></di>' ;
+
+							dynamicLiDOM.innerHTML = '' ;
+							dynamicLiDOM.style.position = 'absolute';
 						}
 					}	
 			}
 		}
 		filterSubs();
 		// (subNavLinksDOM?subNavLinksDOM.innerHTML=subResult:'');
+		
 	
 	}
 }
+
 
 
 document.addEventListener('DOMContentLoaded',()=>{
@@ -170,7 +175,20 @@ window.getData = function getData(event) {
     	localStorage.setItem('clickData',event.target.getAttribute('data'));
 }
 
+window.displaySubMenue = function(e){
+	
+	const page = e.target.textContent;
+	const tempBtn = e.target.getBoundingClientRect();
+	const width = tempBtn.width;
+	const center = tempBtn.left/4;
+	const bottom = tempBtn.bottom - 20;
+	const SubSpan = e.path[1].getElementsByTagName('span')[0];
+	// const UlInSpan = e.path[1].getElementsByTagName('span')[0].getElementsByTagName('ul')[0];
 
+	// SubSpan.style.left = `${center}px`;
+	// SubSpan.style.top = `${bottom}px`;
 
+	
+}
 
 

@@ -85,8 +85,9 @@ class UI {
 		var subNavLinksDOM;
 		navLinks.forEach((link,index)=>{
 			const {id,subLinks,subTitle}=link;
+			// if sublinks is true
 			result += (eval(link.sub))?`<li id="sub" onclick="displaySubMenue(event)">
-						<a href="javascript:void(0)">${eval(link.subTitle)}</a>
+						<a href="javascript:void(0)">${eval(link.subTitle)}<i class="fa fa-plus"></i></a>
 						<span class='subLinks' data-main="${eval(subTitle)}">
 						<ul id="subUl${index}">
 						${subLinks.forEach((item)=>{
@@ -180,14 +181,20 @@ window.displaySubMenue = function(e){
 
 	const SubSpan = e.path[1].getElementsByTagName('span')[0];
 	const UlInSpan = e.path[1].getElementsByTagName('ul')[0];
-
+	const iconSub = e.target.getElementsByTagName('i')[0].classList;
+	// if still e.target show = hide it
  	if(UlInSpan.className === "show"){
  		UlInSpan.classList.toggle("show");
+ 		iconSub.remove('fa-minus');
+ 		iconSub.add('fa-plus');
+
  	}else{
  		document.querySelectorAll('.show').forEach(e => e.classList.remove("show"));
+ 		iconSub.remove('fa-plus');
+ 		iconSub.add('fa-minus');
+ 		
  		UlInSpan.classList.toggle("show");
  	}
-
 }
 
 // click navbar hide sublinks 

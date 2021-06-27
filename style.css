@@ -51,7 +51,7 @@ a,
 }
 
 .links ul li:last-child {
-	margin-left: 20px;
+	margin-left: 40px;
 }
 
 .links ul .icon {
@@ -107,7 +107,12 @@ a,
 	top: -1px;
 	z-index: -1;
 }
-
+#sub a i{
+	position: absolute;
+	left: -10px;
+	top: 5px;
+	font-size: 10px;
+}
 @media screen and (max-width: 600px) {
 	a,
 	.links ul a ,
@@ -159,7 +164,6 @@ a,
 		background-color: rgba(255,255,255,.15) !important;
 	}
 
-
 	.links.responsive ul li a {
 		width: 100%;
 	}
@@ -192,13 +196,19 @@ a,
 	.subLinks ul {
 		transition: all .7s !important;
 		height: auto!important;
+		padding: 1.5%;
 		width: 100% !important;
+		background-color: rgba(36,34,34,.92) !important;
 	}
 
 	#sub .show {
 		transform: translate(50%,0);
 	}
-
+	#sub a i{
+		left: 20px;
+		top: 12px;
+		font-size: 16px;
+	}
 	.links ul li:last-child {
 	margin-left: 0;
 	}

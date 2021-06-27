@@ -48,11 +48,11 @@ a,
 .links ul li {
 	text-decoration: none;
 	list-style: none;
-	margin-right: 10px;
+	margin-right: 13px;
 }
 
 .links ul li:last-child {
-	margin-left: 20px;
+	margin-left: 40px;
 }
 
 .links ul .icon {
@@ -77,7 +77,6 @@ a,
 	visibility: hidden;
 	height: auto;
 	width: 220px;
-	padding: 10px 25px 10px 0;
 }
 .subLinks ul li {
 	display: flex;
@@ -92,7 +91,7 @@ a,
 	opacity: 1;
 	visibility: visible;
 	left:0;
-	transform: translate(40%,35px);
+	transform: translate(40%,45px);
 }
 
 .subLinks ul::after {
@@ -107,18 +106,28 @@ a,
 	top: -1px;
 	z-index: -1;
 }
-@media screen and (max-width: 600px) {
 
+#sub a i{
+	position: absolute;
+	left: -10px;
+	top: 5px;
+	font-size: 10px;
+}
+@media screen and (max-width: 600px) {
+	a,
+	.links ul a ,
+	.links ul li {
+		margin-right: 10px;
+	}
 	.links ul {
 		display: block;
-		/*border-radius: 15px;*/
 		width: 40px;
 		height: 40px;
 		transition: background-color 1s,width 1s ,height 1s;
 	}
 	.links.responsive ul {
 		transition: background-color 1s,width 1s ,height 1s;
-		width: 95%;
+		width: 90%;
 		height: 300px;
 		background-color: #3c3434;
 	}
@@ -126,7 +135,6 @@ a,
 	.links.responsive a,
 	.links.responsive ul li a {
 		color: #fff;
-		width: 160%;
 	}
 
 	.links ul li{
@@ -138,8 +146,28 @@ a,
 	}
 	.links.responsive ul li {
 		display: flex;
-		margin: .5em 0 0 3em;
+		justify-content: center;
+		align-items: flex-start;
+		text-align: center;
+		background-color: rgba(255,255,255,.05);
+		border-radius: 12px;
+		height: 40px ;
+		width: 100%;
+		margin: 5px 0 0 5px;
+		padding-top: 3px;
+	}
 
+	/*hover change button li sub and link bg*/
+	.subLinks ul li:hover,
+	.links.responsive ul li:hover{
+		background-color: rgba(255,255,255,.15) !important;
+	}
+	.links.responsive ul li a {
+		width: 100%;
+	}
+	.subLinks ul li {
+		margin-right: 9px !important;
+		background-color: rgba(255,255,255,.25) !important;
 	}
 	.icon {
 		position: relative;
@@ -156,7 +184,7 @@ a,
 	}
 	.subLinks {
 		position: absolute;
-		top: 10px;
+		top: 30px;
 		left: -50%;
 		width: 100%;
 		z-index: 3;
@@ -164,12 +192,21 @@ a,
 	.subLinks ul {
 		transition: all .7s !important;
 		height: auto!important;
-		padding: 5%;
+		padding: 1.5%;
 		width: 100% !important;
+		background-color: rgba(36,34,34,.92) !important;
 	}
 
 	#sub .show {
-		transform: translate(30%,0);
+		transform: translate(50%,0);
+	}
+	#sub a i{
+		left: 20px;
+		top: 12px;
+		font-size: 16px;
+	}
+	.links ul li:last-child {
+	margin-left: 0;
 	}
 }
 

@@ -17,7 +17,7 @@ content.addEventListener('click',()=>{
 let getSlidesItem = () => {
     return new Promise(function(resolve, reject) {
         setTimeout(function() {
-            var slides = document.getElementsByClassName("mySlides");
+            let slides = document.getElementsByClassName("mySlides");
             resolve(slides);
         }, 5000);
     });
@@ -28,14 +28,14 @@ async function render(){
 }
 render();
 // SETUP slider
-  var slideIndex = 1;
-  function plusSlides(n) {
+var slideIndex = 1;
+function plusSlides(n) {
     showSlides(slideIndex += n);
-  }
-  function currentSlide(n) {
+}
+function currentSlide(n) {
     showSlides(slideIndex = n);
-  }
-  function showSlides(n) {
+}
+function showSlides(n) {
     var i;
     var slides = document.getElementsByClassName("mySlides");
     var dots = document.getElementsByClassName("dot");
@@ -50,8 +50,11 @@ render();
 
     slides[slideIndex-1].style.display = "block";  
     dots[slideIndex-1].className += " active";
-  }
-
+}
+// change slides after 9 sec
+setInterval(()=>{
+  plusSlides(1);
+},9000)
 
 
 /* sticky navbar */

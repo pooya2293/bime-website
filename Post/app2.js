@@ -54,67 +54,69 @@ document.addEventListener('DOMContentLoaded',async()=>{
 			result = result.replace(/,/g, "");//remove all coloms (,);
 			postInfoDOM.innerHTML = result ;
 		}
-			displayNavLinks(navLinks){
-			let result = '<li><a href="../index.html">خانه</a></li>';
-			let subResult ='';
-			var subNavLinksDOM;
-			navLinks.forEach((link,index)=>{
-				const {id,subLinks,subTitle}=link;
-				result += (eval(link.sub))?`<li id="sub" onclick="displaySubMenue(event)">
-							<a href="javascript:void(0)">${eval(link.subTitle)}</a>
-							<span class='subLinks' data-main="${eval(subTitle)}">
-							<ul id="subUl${index}">
-							${subLinks.forEach((item)=>{
-								const {id,subLinkTitle} = item;
-								 subResult +=`<li onclick="getData(event)" data="${id}" data-main="${eval(subTitle)}">
-									<a href='./Post.html' data="${id}">${eval(subLinkTitle)}</a>
-									</li>`;
-								
-							})};
+		displayNavLinks(navLinks){
+		let result = '<li><a href="../index.html">خانه</a></li>';
+		let subResult ='';
+		var subNavLinksDOM;
+		navLinks.forEach((link,index)=>{
+			const {id,subLinks,subTitle}=link;
+			// if sublinks is true
+			result += (eval(link.sub))?`<li id="sub" onclick="displaySubMenue(event)">
+						<a href="javascript:void(0)">${eval(link.subTitle)}<i class="fa fa-plus"></i></a>
+						<span class='subLinks' data-main="${eval(subTitle)}">
+						<ul id="subUl${index}">
+						${subLinks.forEach((item)=>{
+							const {id,subLinkTitle} = item;
+							 subResult +=`<li onclick="getData(event)" data="${id}" data-main="${eval(subTitle)}">
+								<a href='./Post.html' data="${id}">${eval(subLinkTitle)}</a>
+								</li>`;
 							
-							</ul>
-							</span>`:(eval(link.linkTitle)?`<li data="${link.id}" onclick="getData(event)">
-								<a data="${link.id}" href='./Post.html'>
-								${eval(link.linkTitle)}</a>
-							</li>`:'')
+						})};
+						
+						</ul>
+						</span>`:(eval(link.linkTitle)?`<li data="${link.id}" onclick="getData(event)">
+							<a data="${link.id}" href='./Post.html'>
+							${eval(link.linkTitle)}</a>
+						</li>`:'')
 
-			});
+		});
 
-			navLinksDOM.innerHTML = result;
+		navLinksDOM.innerHTML = result;
 
-			for(let i=0;i<10;i++){
-				if(document.querySelector(`#subUl${i}`)){
-				subNavLinksDOM = document.querySelector(`#subUl${i}`);
-				subNavLinksDOM.innerHTML=subResult;
-			
-				}
-			}
-
-			
-			function filterSubs(){	
-				let mainData =document.querySelectorAll('.subLinks');
-				let mainData2 = subNavLinksDOM.querySelector('li');
-				let subFilter = '';
-				for(var k=0;k<mainData.length;k++){
-						//get whole li
-						let dynamicUlDOM=mainData[k].getElementsByTagName('ul')[0].getElementsByTagName('li');
-					for(let j=0;j<dynamicUlDOM.length;j++){
-							let dynamicLiDOM = dynamicUlDOM[j];
-							//if data li = data ul 
-							if(dynamicLiDOM.dataset.main===mainData[k].dataset.main){
-								dynamicLiDOM.className='filter';
-
-							}else{
-
-								dynamicLiDOM.innerHTML = '' ;
-								dynamicLiDOM.style.position = 'absolute';
-							}
-						}	
-				}
-			}
-			filterSubs();
+		for(let i=0;i<10;i++){
+			if(document.querySelector(`#subUl${i}`)){
+			subNavLinksDOM = document.querySelector(`#subUl${i}`);
+			subNavLinksDOM.innerHTML=subResult;
 		
+			}
 		}
+
+		
+		function filterSubs(){	
+			let mainData =document.querySelectorAll('.subLinks');
+			let mainData2 = subNavLinksDOM.querySelector('li');
+			let subFilter = '';
+			for(var k=0;k<mainData.length;k++){
+					//get whole li
+					let dynamicUlDOM=mainData[k].getElementsByTagName('ul')[0].getElementsByTagName('li');
+				for(let j=0;j<dynamicUlDOM.length;j++){
+						let dynamicLiDOM = dynamicUlDOM[j];
+						//if data li = data ul 
+						if(dynamicLiDOM.dataset.main===mainData[k].dataset.main){
+							dynamicLiDOM.className='filter';
+
+						}else{
+
+							dynamicLiDOM.innerHTML = '' ;
+							dynamicLiDOM.style.position = 'absolute';
+							dynamicLiDOM.style.visibility = 'hidden';
+						}
+					}	
+			}
+		}
+		filterSubs();
+	
+	  }
 	}
 
 	
@@ -142,14 +144,20 @@ window.displaySubMenue = function(e){
 
 	const SubSpan = e.path[1].getElementsByTagName('span')[0];
 	const UlInSpan = e.path[1].getElementsByTagName('ul')[0];
-
+	const iconSub = e.target.getElementsByTagName('i')[0].classList;
+	// if still e.target show = hide it
  	if(UlInSpan.className === "show"){
  		UlInSpan.classList.toggle("show");
+ 		iconSub.remove('fa-minus');
+ 		iconSub.add('fa-plus');
+
  	}else{
  		document.querySelectorAll('.show').forEach(e => e.classList.remove("show"));
+ 		iconSub.remove('fa-plus');
+ 		iconSub.add('fa-minus');
+ 		
  		UlInSpan.classList.toggle("show");
  	}
-
 }
 
 // click navbar hide sublinks 

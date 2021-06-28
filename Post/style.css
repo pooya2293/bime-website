@@ -262,7 +262,7 @@ a,
 }
 .weblog .text h2 {
 	font-weight: 800;
-	padding-bottom: 8%;
+	padding: 8% 0 2% 0;
 	color: #363636;
 }
 .weblog .text p {
@@ -283,29 +283,31 @@ a,
 
 .weblog .text .img {
 	display: flex;
+	width: 100%;
 	flex-wrap: wrap;
-	align-items: center;
 	justify-content: center;
-	position: relative;
-	right: 5%;
-	text-align: center;
-	padding: 6vw 5vw;
+	align-items: center;
+	align-content: center;
+	padding: 2vw 5vw;
+}
 
+.weblog .text .img img {
+	border-radius: 8px;
 }
 
 .weblog .text .img i {
 	color: rgba(122,121,121,.8);
-	position: relative;
-	right: -4.6%;
 	font-size: .8rem;
+	position: relative;
+	top: .7rem;
 }
 
-.weblog img {
+.weblog img:not(.img img) {
 	width: 90%;
 	height:90% ;
 	position: relative;
-	left: 50%;
-	transform: translateX(-50%);
+	left: -50%;
+	transform: translateX(50%);
 	top: 5px;
 	border-radius: 20px;
 	z-index: 1;

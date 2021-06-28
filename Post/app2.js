@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded',async()=>{
 	/**** dunamic import ****/
 	const pathData = `./postData/${clickData2}.js`;
 	const result =await import(pathData);
-	window.console.log(result.default);
 
 
 	/**** linking to DOM ****/

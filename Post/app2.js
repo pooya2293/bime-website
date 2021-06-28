@@ -1,6 +1,7 @@
 import {LminiApiParse} from '../miniAPI.js';
 import * as Post from '../index.js';
 
+
 /* import what Post you click on Home Page */
 const clickData2 = localStorage.getItem('clickData');
 

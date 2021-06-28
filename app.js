@@ -115,8 +115,6 @@ class UI {
 		
 			}
 		}
-
-		
 		function filterSubs(){	
 			let mainData =document.querySelectorAll('.subLinks');
 			let mainData2 = subNavLinksDOM.querySelector('li');
@@ -144,6 +142,7 @@ class UI {
 	}
 }
 
+		
 
 
 document.addEventListener('DOMContentLoaded',()=>{
@@ -205,3 +204,4 @@ window.handleSubmenu= function (e){
 	}
 
 }
+

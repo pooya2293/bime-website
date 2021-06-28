@@ -316,8 +316,16 @@ a,
 .content {
 	background-color: #f4f0f0;
 }
-
-
+.card-header {	
+	background-color: #007bff;
+}
+.btn-link {
+	color: #fff;
+	text-decoration: none !important;
+}
+.btn-link:hover {
+	color: #fff;
+}
 @media only screen and (max-width: 950px) {
 	.weblog {
 		width: 100%;

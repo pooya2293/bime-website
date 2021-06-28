@@ -54,12 +54,12 @@ document.addEventListener('DOMContentLoaded',async()=>{
 								    </div>
 									<div id="collapse${index}" class="collapse" aria-labelledby="heading${index}" data-parent="#accordion">
 										<div class="card-body">
-										<h2>${info.title}</h2>
 											${info.img?`
 												<div class="img">
 													<img src=${info.img} alt="">
 													<i>${info.i}</i>
 												</div>`:''}
+												<h2>${info.title}</h2>
 											${info.p.map((item)=>{
 												return(`<p>${item}</p>`)
 											})}

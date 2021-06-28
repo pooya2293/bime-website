@@ -32,28 +32,51 @@ document.addEventListener('DOMContentLoaded',async()=>{
 	}
 	class UI {
 		displayPostInfo(infos){
-			let result = '';
-			infos.forEach((info)=>{
+			let result = '<div class="text">';
+			infos.map((info,index)=>{
 				result += `${info.mainImage?`<img src=${info.mainImage} alt="">`:''}
-				<div class="text">
+				
 					${info.s?`<span>${info.s ? info.s:'' }</span>`:''}
-					${info.title?`<h2>${info.title}</h2>`:''}
-					
-						${info.img?`<div class="img">
+					${(info.title&&!info.collapse)?`<h2>${info.title}</h2>`:''}
+						${info.img&&!info.collapse?`<div class="img">
 							<img src=${info.img} alt="">
 						<i>${info.i}</i>
 						</div>`:''}
-						
-					
-					${info.p.map((item)=>{
-						return `<p>${item}</p>`
-					})}
-				</div>`
-
-				
+					${(info.collapse?(
+						`<div id="accordion">
+							${
+								`<div class="card">
+								    <div class="card-header" id="heading${index}">
+								    <h3 class="mb-0">
+									   <button class="btn btn-link" data-toggle="collapse" data-target="#collapse${index}" aria-expanded="true" aria-controls="collapse${index}">
+									   	   ${info.title}
+									   </button>
+								    </h3>
+								    </div>
+									<div id="collapse${index}" class="collapse" aria-labelledby="heading${index}" data-parent="#accordion">
+										<div class="card-body">
+										<h2>${info.title}</h2>
+											${info.img?`
+												<div class="img">
+													<img src=${info.img} alt="">
+													<i>${info.i}</i>
+												</div>`:''}
+											${info.p.map((item)=>{
+												return(`<p>${item}</p>`)
+											})}
+										</div>
+									</div>`
+							}	
+						</div>`
+					):(
+						info.p.map((item)=>{
+							return `<p>${item}</p>`
+						}))
+					)}
+				`
 			});
 			result = result.replace(/,/g, "");//remove all coloms (,);
-			postInfoDOM.innerHTML = result ;
+			postInfoDOM.innerHTML = result + '</div>' ;
 		}
 		displayNavLinks(navLinks){
 		let result = '<li><a href="../index.html">خانه</a></li>';

@@ -12,9 +12,9 @@ const openLinks= ()=>{
 const content = document.querySelector('.content');
 content.addEventListener('click',()=>{
   	// if click to content close navbar
- 	document.querySelector('.links').classList.remove('responsive')
+ 	document.querySelector('.links').classList.remove('responsive');
   	// if click to content close sublinks
- 	document.querySelectorAll('.show').forEach(e => e.classList.remove("show")); 
+ 	document.querySelectorAll('.Myshow').forEach(e => e.classList.remove("Myshow")); 
 }); 
 
 navbar.classList.add("sticky");

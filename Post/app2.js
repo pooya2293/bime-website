@@ -147,17 +147,17 @@ window.displaySubMenue = function(e){
 	const UlInSpan = e.path[1].getElementsByTagName('ul')[0];
 	const iconSub = e.target.getElementsByTagName('i')[0].classList;
 	// if still e.target show = hide it
- 	if(UlInSpan.className === "show"){
- 		UlInSpan.classList.toggle("show");
+ 	if(UlInSpan.className === "Myshow"){
+ 		UlInSpan.classList.toggle("Myshow");
  		iconSub.remove('fa-minus');
  		iconSub.add('fa-plus');
 
  	}else{
- 		document.querySelectorAll('.show').forEach(e => e.classList.remove("show"));
+ 		document.querySelectorAll('.Myshow').forEach(e => e.classList.remove("Myshow"));
  		iconSub.remove('fa-plus');
  		iconSub.add('fa-minus');
  		
- 		UlInSpan.classList.toggle("show");
+ 		UlInSpan.classList.toggle("Myshow");
  	}
 }
 
@@ -165,7 +165,8 @@ window.displaySubMenue = function(e){
 window.handleSubmenu= function (e){
 	// if event target = DIV only remove .show
 	if(e.target.tagName === 'DIV'){
-		document.querySelectorAll('.show').forEach(e => e.classList.remove("show"));
+		document.querySelectorAll('.Myshow').forEach(e => e.classList.remove("Myshow"));
 	}
 
 }
+

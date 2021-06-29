@@ -256,12 +256,13 @@ a,
 	left: 50%;
 	transform: translateX(-50%);
 	font-size: 1.9vw;
-	padding: 4% 4% 4% 2%;
+	padding: 4% 2% 4% 1%;
 	background-color: #fff;
 	border-radius: 5px;
 }
 .weblog .text h2 {
 	font-weight: 800;
+	font-size: 130%;
 	padding: 8% 0 2% 0;
 	color: #363636;
 }
@@ -285,6 +286,7 @@ a,
 	display: flex;
 	width: 100%;
 	flex-wrap: wrap;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	align-content: center;
@@ -292,6 +294,8 @@ a,
 }
 
 .weblog .text .img img {
+	width: 40vw;
+	height: auto;
 	border-radius: 8px;
 }
 
@@ -299,7 +303,7 @@ a,
 	color: rgba(122,121,121,.8);
 	font-size: .8rem;
 	position: relative;
-	top: .7rem;
+	top: .2rem;
 }
 
 .weblog img:not(.img img) {
@@ -318,6 +322,7 @@ a,
 }
 .card-header {	
 	background-color: #007bff;
+	padding: 0 0 ;
 }
 .btn-link {
 	color: #fff;
@@ -326,7 +331,13 @@ a,
 .btn-link:hover {
 	color: #fff;
 }
-@media only screen and (max-width: 950px) {
+.card-body {
+	padding: 0 8px 0 0;
+}
+.btn.focus, .btn:focus {
+    box-shadow: none;
+}
+@media only screen and (max-width: 1050px) {
 	.weblog {
 		width: 100%;
 	}
@@ -337,7 +348,12 @@ a,
 	}
 
 	.weblog .text h2 {
-		font-size: 1rem;
+		font-size: 110%;
+		text-align: center;
+	}
+
+	.btn {
+		font-size: .65rem;
 	}
 
 	.weblog .text span {
@@ -346,6 +362,11 @@ a,
 	}
 	.weblog .text .img {
 		padding: 6vw 0;
+	}
+
+	.weblog .text .img img {
+		width: 60vw;
+		height: auto;
 	}
 
 	.weblog .text p {
@@ -357,7 +378,14 @@ a,
 	}
 }
 
-
+@media only screen and (max-width: 370px) {
+	.weblog .text {
+		font-size: 5vw;
+	}
+	.card-header {	
+		padding: 0 0 ;
+	}
+}
 
 /* sticky navbar */
 .sticky {
